@@ -1,0 +1,8 @@
+registration
+Required data:  Username, full name, e-mail address, primary use of website (service-provider/customer).
+                Validation of account by administrator.
+
+log-in
+pre log-in:   Log-in/registration should be clearly visible. Log-in is required to browse through web-page. Services are only visible with thumbnails (see pinterest).
+log-in:       Requires username and password. If username or password are forgotten, contact administrator.
+post log-in:  Depending on primary use (service-provider/customer), the post log-in screen should be different.
