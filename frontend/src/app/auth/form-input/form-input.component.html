@@ -1,0 +1,11 @@
+<ion-item [formGroup]="registerForm" lines="full">
+  <ion-label position="floating">{{ text }}</ion-label>
+  <ion-input (keydown.space)="inputChange($event)" [formControlName]="givenName"  [inputmode]="inputMode" [type]="type" ></ion-input>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validationMessages">
+      <div class="error-message" *ngIf="registerForm.get(givenName).hasError(validation.type) && (registerForm.get(givenName).dirty || registerForm.get(givenName).touched)">
+        {{ validation.message + "\n"}}
+      </div>
+    </ng-container>
+  </div>
+</ion-item>
