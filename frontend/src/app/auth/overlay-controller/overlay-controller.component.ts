@@ -15,7 +15,6 @@ export class OverlayControllerComponent implements OnInit {
     this.presentOverlay(undefined);
   }
   async presentOverlay(ev: any){
-    if (localStorage.getItem('sessionToken')) return;
     const overlay = await this.popoverController.create({
       component: OverlayContentComponent,
       cssClass: 'overlay',

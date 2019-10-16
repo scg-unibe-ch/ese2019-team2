@@ -9,7 +9,7 @@ router.post('/login', async (req: Request, res: Response) => {
     if (req.body.username === 'admin' && req.body.password === 'admin') {
     res.statusCode = 200;
 
-    res.json({username: 'Adrian', uuid: '1', token: 'thisIsAnExampleToken'});
+    res.json({username: 'Adrian', uuid: 1, token: 'thisIsAnExampleToken'});
     } else {
         res.statusCode = 401;
         res.send();

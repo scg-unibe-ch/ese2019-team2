@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 
 import { AuthModule } from '../../auth/auth.module';
+import {HeaderModule} from '../../common/header/header.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AuthModule } from '../../auth/auth.module';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+      HeaderModule
   ],
   declarations: [HomePage]
 })

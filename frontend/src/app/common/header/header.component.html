@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-avatar><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
+                </ion-col>
+                <ion-col class="ion-text-right">
+                    <app-overlay-controller
+                            *ngIf="!auth.isLoggedIn() && !auth.displayPopover()"></app-overlay-controller>
+                    <ion-button *ngIf="!auth.isLoggedIn() ">Log in!</ion-button>
+                    <ion-button *ngIf="!auth.isLoggedIn()">Register!</ion-button>
+                    <ion-button *ngIf="auth.isLoggedIn()" (click)="logout()">Log out!</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </ion-toolbar>
+</ion-header>

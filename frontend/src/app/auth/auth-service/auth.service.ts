@@ -8,6 +8,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 })
 export class AuthService {
     currentUser: User;
+    surpressPopover: boolean = false;
 
     constructor(private http: HttpClient) {
     }
@@ -28,10 +29,19 @@ export class AuthService {
     }
 
     generateUserFromJSON(data): User {
-        return new User(data.uuid, data.username, data.token);
+        return new User(data.uuid, data.token, data.username);
     }
 
     isLoggedIn(): boolean {
-        return Boolean(localStorage.getItem('sessionToken'));
+        const result = Boolean(localStorage.getItem('sessionToken'));
+        if (result) this.surpressPopover = true;
+        return result;
     }
+
+    displayPopover(): boolean {
+        const result = this.surpressPopover;
+        this.surpressPopover = true;
+        return result;
+    }
+
 }
