@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import {alphabeticOnlyValidator, passwordValidator} from '../../register/register-form/CustomValidator';
 import {AuthService} from '../../auth-service/auth.service';
 import {first} from 'rxjs/operators';
+import { ViewController } from '@ionic/core';
+import { PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -12,6 +15,7 @@ import {first} from 'rxjs/operators';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+  showWrongCredentials: boolean = false;
   validationMessages = {
     username: [
       { type: 'required', message: 'This field can\'t be empty.'},
@@ -22,7 +26,7 @@ export class LoginFormComponent implements OnInit {
       { type: 'nonalphabeticChars', message: 'The name can only contain alphabetic chars.'}
     ]
   };
-  constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -37,9 +41,15 @@ export class LoginFormComponent implements OnInit {
     const loginResponse = this.auth.login(username, password);
     loginResponse.pipe(first())
         .subscribe(data => {
-            console.log(data);
+          this.showWrongCredentials = false;
+            this.popCtrl.dismiss(data);
+            this.router.navigate(['/profile']);
         }, error => {
+          this.showWrongCredentials = true;
+          this.loginForm.get('password').reset(); 
           console.log(error);
         });
   }
+
+  
 }

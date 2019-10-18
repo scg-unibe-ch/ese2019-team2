@@ -6,7 +6,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   templateUrl: './form-input.component.html',
   styleUrls: ['./form-input.component.scss'],
 })
-export class FormInputComponent {
+export class FormInputComponent implements OnInit {
   @Input('validationMessages') validationMessages: any;
   @Input('registerForm') registerForm: FormGroup;
   @Input() givenName: string;
@@ -14,12 +14,28 @@ export class FormInputComponent {
   @Input() type = 'text';
   @Input() inputMode = 'text';
 
-  constructor() {  }
+  isPassword = false;
+  isShowingPw: boolean = false;
+  get isHidingPw(){
+    return !this.isShowingPw;
+  }
+
+  constructor() { 
+   }
+
+   ngOnInit(){
+    this.isPassword = this.type === 'password';
+   }
 
 
   inputChange(evt: any) {
     if (this.type === 'password') {
       evt.preventDefault();
     }
+  }
+
+  showPassword(bool: boolean){
+    this.type = bool ? 'text': 'password';
+    this.isShowingPw = bool;
   }
 }

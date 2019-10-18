@@ -1,6 +1,10 @@
 <ion-item [formGroup]="registerForm" lines="full">
   <ion-label position="floating">{{ text }}</ion-label>
-  <ion-input (keydown.space)="inputChange($event)" [formControlName]="givenName"  [inputmode]="inputMode" [type]="type" ></ion-input>
+  <ion-input (keydown.space)="inputChange($event)" [formControlName]="givenName"  [inputmode]="inputMode" [type]="type"></ion-input>
+    <ng-container *ngIf="isPassword">
+        <ion-icon *ngIf="isHidingPw" slot="end" name="eye" (click)="showPassword(true)"></ion-icon>
+        <ion-icon *ngIf="isShowingPw" slot="end" name="eye-off" (click)="showPassword(false)"></ion-icon>
+    </ng-container>
   <div class="validation-errors">
     <ng-container *ngFor="let validation of validationMessages">
       <div class="error-message" *ngIf="registerForm.get(givenName).hasError(validation.type) && (registerForm.get(givenName).dirty || registerForm.get(givenName).touched)">

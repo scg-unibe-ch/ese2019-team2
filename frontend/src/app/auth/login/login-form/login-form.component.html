@@ -1,5 +1,8 @@
 <form margin-bottom [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
   <app-form-input [givenName]="'username'" [text]="'Username'"[validationMessages]="validationMessages.username" [registerForm]="loginForm"></app-form-input>
   <app-form-input [givenName]="'password'" [text]="'Password'"[validationMessages]="validationMessages.password" [registerForm]="loginForm" [type]="'password'"></app-form-input>
+  <ion-item *ngIf="showWrongCredentials"> 
+    <ion-text class="error-message">username or password incorrect</ion-text>
+  </ion-item>
   <ion-button size="default" type="submit" [disabled]="!loginForm.valid">Login now</ion-button>
 </form>

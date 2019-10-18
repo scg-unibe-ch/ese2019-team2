@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HeaderComponent} from './header.component';
 import {AuthModule} from '../../auth/auth.module';
 import {IonicModule} from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {IonicModule} from '@ionic/angular';
   imports: [
     CommonModule,
     AuthModule,
-    IonicModule
+    IonicModule,
+    RouterModule
   ],
   exports: [ HeaderComponent ]
 })

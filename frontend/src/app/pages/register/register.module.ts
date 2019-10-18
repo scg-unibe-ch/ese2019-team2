@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { RegisterPage } from './register.page';
 import {AuthModule} from '../../auth/auth.module';
 
+import {HeaderModule} from '../../common/header/header.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -21,7 +23,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    AuthModule
+    AuthModule,
+    HeaderModule
   ],
   declarations: [RegisterPage]
 })
