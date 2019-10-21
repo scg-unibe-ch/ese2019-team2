@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {alphabeticOnlyValidator, passwordValidator} from '../../register/register-form/CustomValidator';
+import { UserService } from '../../../user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +20,7 @@ export class LoginFormComponent implements OnInit {
       { type: 'nonalphabeticChars', message: 'The name can only contain alphabetic chars.'}
     ]
   };
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -29,6 +30,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-
+    // TODO: check id from database
+    this.userService.loginUser(id, this.loginForm.get('password'));
   }
 }

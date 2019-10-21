@@ -7,6 +7,7 @@ import {OverlayContentComponent} from './overlay-content/overlay-content.compone
 import {RegisterFormComponent} from './register/register-form/register-form.component';
 import {LoginFormComponent} from './login/login-form/login-form.component';
 import {FormInputComponent} from './form-input/form-input.component';
+import { UserService } from '../user.service';
 
 
 
@@ -29,7 +30,10 @@ import {FormInputComponent} from './form-input/form-input.component';
     FormsModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+      UserService
   ]
 })
 export class AuthModule { }
