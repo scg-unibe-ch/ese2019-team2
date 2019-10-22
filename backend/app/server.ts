@@ -2,20 +2,12 @@
 import express from 'express';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
-import {TodoListController, TodoItemController, WelcomeController, UsersController} from './controllers';
-import {Sequelize} from 'sequelize-typescript';
-import {TodoList} from './models/todolist.model';
-import {TodoItem} from './models/todoitem.model';
+import { UsersController } from './controllers';
 
-const sequelize =  new Sequelize({
-  database: 'development',
-  dialect: 'sqlite',
-  username: 'root',
-  password: '',
-  storage: 'db.sqlite'
-});
-sequelize.addModels([TodoList, TodoItem]);
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost:27017/users');
+const connection = mongoose.connection;
 // create a new express application instance
 const app: express.Application = express();
 app.use(express.json());
@@ -33,16 +25,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/todolist', TodoListController);
-app.use('/todoitem', TodoItemController);
-app.use('/welcome', WelcomeController);
 app.use('/users', UsersController);
 
-
-sequelize.sync().then(() => {
 // start serving the application on the given port
+connection.once('open', () => {
   app.listen(port, () => {
     // success callback, log something to console as soon as the application has started
     console.log(`Listening at http://localhost:${port}/`);
   });
 });
+
