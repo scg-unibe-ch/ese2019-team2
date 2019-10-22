@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { passwordValidator, alphabeticOnlyValidator } from './CustomValidator';
+import { AuthService } from '../../auth-service/auth.service';
+import { PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register-form',
@@ -9,6 +13,7 @@ import { passwordValidator, alphabeticOnlyValidator } from './CustomValidator';
 })
 export class RegisterFormComponent implements OnInit {
 
+  errorMessage = '';
   registerForm: FormGroup;
   validationMessages = {
     lastName: [
@@ -35,7 +40,7 @@ export class RegisterFormComponent implements OnInit {
     ]
   };
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -48,6 +53,19 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-
+    const lastname = this.registerForm.get('lastName').value;
+    const firstname = this.registerForm.get('firstName').value;
+    const email = this.registerForm.get('email').value;
+    const username = this.registerForm.get('username').value;
+    const password = this.registerForm.get('password').value;
+    const loginResponse = this.auth.register(lastname, firstname, email, username, password);
+    loginResponse.pipe(first())
+        .subscribe(data => {
+          if (this.popCtrl.getTop()){this.popCtrl.dismiss(data);}  
+            this.router.navigate(['/profile']);
+        }, err => {
+          this.errorMessage = err.error.error;
+          this.registerForm.get('password').reset();
+        });
   }
 }

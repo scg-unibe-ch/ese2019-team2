@@ -1,8 +1,9 @@
 import { AbstractControl } from '@angular/forms';
 
 export function passwordValidator(control: AbstractControl) {
+    if (control.value === null) return;
     const password: string = control.value.toString();
-
+    
     if (password === password.toLowerCase() || password === password.toUpperCase()) {
         return { passwordUpperLowerCaseRestriction: true };
     }

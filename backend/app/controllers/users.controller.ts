@@ -61,7 +61,6 @@ router.post('/register', async (req: Request, res: Response) => {
                     res.status(418).json({error: err});
                 }
                 res.status(201).json(user);
-                
             })
         }
     })

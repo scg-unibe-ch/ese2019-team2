@@ -4,5 +4,8 @@
   <app-form-input [givenName]="'email'" [text]="'Email'"[validationMessages]="validationMessages.email" [registerForm]="registerForm" [type]="'email'" [inputMode]="'email'"></app-form-input>
   <app-form-input [givenName]="'username'" [text]="'Username'"[validationMessages]="validationMessages.username" [registerForm]="registerForm"></app-form-input>
   <app-form-input [givenName]="'password'" [text]="'Password'"[validationMessages]="validationMessages.password" [registerForm]="registerForm" [type]="'password'"></app-form-input>
+  <ion-item *ngIf="errorMessage">
+    <ion-text class="error-message" >{{ errorMessage }}</ion-text>
+  </ion-item>
   <ion-button size="default" type="submit" [disabled]="!registerForm.valid">Register now</ion-button>
 </form>

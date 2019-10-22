@@ -42,7 +42,7 @@ export class LoginFormComponent implements OnInit {
     loginResponse.pipe(first())
         .subscribe(data => {
           this.showWrongCredentials = false;
-            this.popCtrl.dismiss(data);
+          if (this.popCtrl.getTop()){this.popCtrl.dismiss(data);}  
             this.router.navigate(['/profile']);
         }, error => {
           this.showWrongCredentials = true;
