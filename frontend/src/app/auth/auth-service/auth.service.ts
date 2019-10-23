@@ -3,6 +3,7 @@ import {User} from '../../models/user';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Router } from '@angular/router';
+import decode from 'jwt-decode';
 
 @Injectable({
     providedIn: 'root',
@@ -19,7 +20,7 @@ export class AuthService {
             .pipe(map(data => {
                 const userInformation = (data.body.userInformation);
                 const token = data.body.token; 
-                const expirationTime = data.body.expiresIn;
+                const expirationTime = decode(token).exp;
                 if (data.status === 200 && userInformation.username){
                     this.currentUser = this.generateUserFromJSON(userInformation, token);
                     localStorage.setItem('sessionToken', this.currentUser.token);
@@ -39,7 +40,7 @@ export class AuthService {
             .pipe(map(data => {
                 const userInformation = (data.body.userInformation);
                 const token = data.body.token;
-                const expirationTime = data.body.expiresIn;
+                const expirationTime = decode(token).exp;
                 if (data.status === 201 && userInformation.username){
                     this.currentUser = this.generateUserFromJSON(userInformation, token);
                     localStorage.setItem('sessionToken', this.currentUser.token);
@@ -50,7 +51,7 @@ export class AuthService {
     }
 
     generateUserFromJSON(data, token): User {
-       return new User(data._id, token, data.username, data.firstName);
+       return new User(data._id, token, data.username, data.firstName, 'user');
     }
 
     isLoggedIn(): boolean {
@@ -65,10 +66,12 @@ export class AuthService {
     }
 
     displayPopover(): boolean {
-        const result = this.surpressPopover;
-        this.surpressPopover = true;
-        return result;
+        return !this.surpressPopover;
     }
+
+    setPopoverDisplayed() {
+        this.surpressPopover = true;
+      }
 
     removeItems(){
         localStorage.removeItem('sessionToken');

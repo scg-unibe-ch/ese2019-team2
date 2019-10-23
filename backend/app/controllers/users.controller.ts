@@ -11,6 +11,7 @@ router.get('/', async (req: Request, res: Response) => {
     res.send('API: USERS<br>Possible requests:<br><ul><li>(post, (username, password))/login</li><li>(get, username)/</li><li>(post, (lastname, firstname, email, username, password))/register</li></ul>');
 });
 router.post('/login', async (req: Request, res: Response) => {
+    console.log(await bcrypt.hash('admin', 10));
     User.findOne({username: req.body.username}, async (err: any, user: any) => {
         if (err) {
            return res.status(418).json({error: 'Error'});
@@ -60,6 +61,7 @@ router.post('/register', async (req: Request, res: Response) => {
                 email: req.body.email,
                 username: req.body.username,
                 password: await bcrypt.hash(req.body.password, saltRounds),
+                role: 'user'
             });
             user.save((err: Error, user: any)=> {
                 if (err) {
@@ -76,15 +78,14 @@ async function getUserInformation(userid: number, token: boolean = false){
     const userInformation = await User.findById(userid, '-password -_id -__v');
     let result;
     if (token){
-        const expirationTime = EXPIRATION_TIME()
         result = {
             userInformation, 
             token: generateToken(
                 {
                     userid,
-                    username: userInformation.username
-                }, expirationTime),
-            expiresIn: expirationTime
+                    username: userInformation.username,
+                    role: userInformation.role
+                }, EXPIRATION_TIME())
         };
     }else {
         result = {userInformation, token: undefined};

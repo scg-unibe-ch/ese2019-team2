@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { OverlayContentComponent } from '../overlay-content/overlay-content.component';
+import { AuthService } from '../auth-service/auth.service';
 
 @Component({
   selector: 'app-overlay-controller',
@@ -9,7 +10,7 @@ import { OverlayContentComponent } from '../overlay-content/overlay-content.comp
 })
 export class OverlayControllerComponent implements OnInit {
 
-  constructor(public popoverController: PopoverController) { }
+  constructor(public popoverController: PopoverController, private auth: AuthService) { }
 
   ngOnInit() {
     this.presentOverlay(undefined);
@@ -21,6 +22,7 @@ export class OverlayControllerComponent implements OnInit {
       event: ev,
       translucent: false
     });
+    this.auth.setPopoverDisplayed();
     return await overlay.present();
   }
 }

@@ -5,6 +5,7 @@ import { AuthService } from '../../auth-service/auth.service';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-register-form',
@@ -61,7 +62,11 @@ export class RegisterFormComponent implements OnInit {
     const loginResponse = this.auth.register(lastname, firstname, email, username, password);
     loginResponse.pipe(first())
         .subscribe(data => {
-          if (this.popCtrl.getTop()){this.popCtrl.dismiss(data);}  
+          this.popCtrl.getTop().then(overlay => {
+            if (!isUndefined(overlay)) {
+              this.popCtrl.dismiss();
+            };
+          });
             this.router.navigate(['/profile']);
         }, err => {
           this.errorMessage = err.error.error;
