@@ -6,6 +6,7 @@ import {first} from 'rxjs/operators';
 import { ViewController } from '@ionic/core';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-login-form',
@@ -42,8 +43,12 @@ export class LoginFormComponent implements OnInit {
     loginResponse.pipe(first())
         .subscribe(data => {
           this.showWrongCredentials = false;
-          if (this.popCtrl.getTop()){this.popCtrl.dismiss(data);}  
-            this.router.navigate(['/profile']);
+          this.popCtrl.getTop().then(overlay => {
+           if (!isUndefined(overlay)) {
+             this.popCtrl.dismiss();
+           };
+         });
+          this.router.navigate(['/profile']);
         }, error => {
           this.showWrongCredentials = true;
           this.loginForm.get('password').reset(); 
