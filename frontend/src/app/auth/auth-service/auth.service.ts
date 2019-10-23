@@ -32,6 +32,7 @@ export class AuthService {
 
     logout(){
         this.removeItems();
+        this.surpressPopover = true;
         this.router.navigate(['/']);
     }
 
@@ -82,12 +83,15 @@ export class AuthService {
         const token = localStorage.getItem('sessionToken');
         const tokenPayload = decode(token);
         const currentRole = tokenPayload.payload.role;
-        console.log(`testing: ${expectedRole} was expected; ${tokenPayload.payload.role} was delivered`);
         if (expectedRole === currentRole)
             return true;
         else if (expectedRole === 'user' && currentRole === 'admin')
             return true;
         else return false;
+    }
+
+    getUserInformation(){
+        return this.http.post<any>('http://localhost:3000/users/profileInformation', {token: localStorage.getItem('sessionToken')}, {observe: 'response'});
     }
 
 }

@@ -6,6 +6,7 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const PRIVATE_KEY = 'ArmadilloHumourTimingAccusationBeliefGirlfriendGuyPhotoTenantWinery';
 const EXPIRATION_TIME = () => {return Math.floor(Date.now() / 1000) + (60 * 60)};
+
 router.get('/', async (req: Request, res: Response) => {
     res.statusCode = 200;
     res.send('API: USERS<br>Possible requests:<br><ul><li>(post, (username, password))/login</li><li>(get, username)/</li><li>(post, (lastname, firstname, email, username, password))/register</li></ul>');
@@ -67,10 +68,22 @@ router.post('/register', async (req: Request, res: Response) => {
                     console.error(err);
                     res.status(418).json({error: err});
                 }
-                getUserInformation(user._id, true).then(data => {res.json(data)});
+                getUserInformation(user._id, true).then(data => {res.status(200).json(data)});
             })
         }
     })
+});
+
+router.post('/profileInformation', async (req: Request, res: Response) => {
+    const token = req.body.token;
+    jwt.verify(token, PRIVATE_KEY, (err: any, decoded: any) => {
+        if (err) {
+            console.log(err);
+            return res.status(401).json({message: err});
+        }
+        const userid = decoded.payload.userid;
+        getUserInformation(userid).then(data => {res.status(200).json(data)})
+    });
 });
 
 async function getUserInformation(userid: number, token: boolean = false){
@@ -95,6 +108,5 @@ async function getUserInformation(userid: number, token: boolean = false){
 function generateToken(payload: any, expirationTime: number){
     return jwt.sign({payload, exp: expirationTime}, PRIVATE_KEY);
 }
-
 
 export const UsersController: Router = router;
