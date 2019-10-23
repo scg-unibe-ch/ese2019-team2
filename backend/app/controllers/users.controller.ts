@@ -11,7 +11,6 @@ router.get('/', async (req: Request, res: Response) => {
     res.send('API: USERS<br>Possible requests:<br><ul><li>(post, (username, password))/login</li><li>(get, username)/</li><li>(post, (lastname, firstname, email, username, password))/register</li></ul>');
 });
 router.post('/login', async (req: Request, res: Response) => {
-    console.log(await bcrypt.hash('admin', 10));
     User.findOne({username: req.body.username}, async (err: any, user: any) => {
         if (err) {
            return res.status(418).json({error: 'Error'});

@@ -78,4 +78,16 @@ export class AuthService {
         localStorage.removeItem('expiration');
     }
 
+    canOpen(expectedRole: string) {
+        const token = localStorage.getItem('sessionToken');
+        const tokenPayload = decode(token);
+        const currentRole = tokenPayload.payload.role;
+        console.log(`testing: ${expectedRole} was expected; ${tokenPayload.payload.role} was delivered`);
+        if (expectedRole === currentRole)
+            return true;
+        else if (expectedRole === 'user' && currentRole === 'admin')
+            return true;
+        else return false;
+    }
+
 }
