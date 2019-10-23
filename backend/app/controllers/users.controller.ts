@@ -3,6 +3,9 @@ const User = require('../models/user.model');
 const router: Router = Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const jwt = require('jsonwebtoken');
+const PRIVATE_KEY = 'ArmadilloHumourTimingAccusationBeliefGirlfriendGuyPhotoTenantWinery';
+const EXPIRATION_TIME = () => {return Math.floor(Date.now() / 1000) + (60 * 60)};
 router.get('/', async (req: Request, res: Response) => {
     res.statusCode = 200;
     res.send('API: USERS<br>Possible requests:<br><ul><li>(post, (username, password))/login</li><li>(get, username)/</li><li>(post, (lastname, firstname, email, username, password))/register</li></ul>');
@@ -23,7 +26,7 @@ router.post('/login', async (req: Request, res: Response) => {
             })
         }
         else {
-            getUserInformation(user._id, "exampletoken").then(data => {res.json(data)});
+            getUserInformation(user._id, true).then(data => {res.json(data)});
         }
     })
 });
@@ -63,16 +66,34 @@ router.post('/register', async (req: Request, res: Response) => {
                     console.error(err);
                     res.status(418).json({error: err});
                 }
-                getUserInformation(user._id, "exampletoken").then(data => {res.json(data)});
+                getUserInformation(user._id, true).then(data => {res.json(data)});
             })
         }
     })
 });
 
-async function getUserInformation(userid: number, token?: any){
+async function getUserInformation(userid: number, token: boolean = false){
     const userInformation = await User.findById(userid, '-password -_id -__v');
-    const result = {userInformation, token: 'exampletoken'};
+    let result;
+    if (token){
+        const expirationTime = EXPIRATION_TIME()
+        result = {
+            userInformation, 
+            token: generateToken(
+                {
+                    userid,
+                    username: userInformation.username
+                }, expirationTime),
+            expiresIn: expirationTime
+        };
+    }else {
+        result = {userInformation, token: undefined};
+    }
     return result;
+}
+
+function generateToken(payload: any, expirationTime: number){
+    return jwt.sign({payload, exp: expirationTime}, PRIVATE_KEY);
 }
 
 
