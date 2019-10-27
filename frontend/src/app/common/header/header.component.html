@@ -6,14 +6,24 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <ion-avatar><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
-                </ion-col>
+                    <ion-item lines="none">
+                    <ion-avatar [routerLink]="['/']" class="heaeder-logo"><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
+                    <ion-title class="ion-text-capitalize">
+                        {{ title }}
+                    </ion-title>
+                    </ion-item>
+                </ion-col> 
                 <ion-col class="ion-text-right">
                     <app-overlay-controller
-                            *ngIf="!isThisLoginOrRegisterPage() && !auth.isLoggedIn() && auth.displayPopover()"></app-overlay-controller>
-                    <ion-button *ngIf="!auth.isLoggedIn()" [routerLink]="['/login']">Log in!</ion-button>
-                    <ion-button *ngIf="!auth.isLoggedIn()" [routerLink]="['/register']">Register!</ion-button>
-                    <ion-button *ngIf="auth.isLoggedIn()" (click)="logout()">Log out!</ion-button>
+                        *ngIf="!isThisLoginOrRegisterPage() && !auth.isLoggedIn() && auth.displayPopover()">
+                    </app-overlay-controller>
+                    <ng-container *ngIf="!auth.isLoggedIn()">
+                        <ion-button [routerLink]="['/login']">Log in!</ion-button>
+                        <ion-button [routerLink]="['/register']">Register!</ion-button>
+                    </ng-container>
+                    <ng-container *ngIf="auth.isLoggedIn()">
+                        <ion-button (click)="logout()">Log out!</ion-button>
+                    </ng-container>
                 </ion-col>
             </ion-row>
         </ion-grid>

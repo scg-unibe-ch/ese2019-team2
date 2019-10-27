@@ -11,6 +11,7 @@ const routes: Routes = [
   data: { expectedRole: 'user' } },
   { path: 'admin', loadChildren: './pages/admin/admin.module#AdminPageModule', canActivate: [RoleGuardService], 
   data: { expectedRole: 'admin' } },
+  { path: 'category/:categoryName', loadChildren: './pages/category/category.module#CategoryPageModule'}
 ];
 
 @NgModule({

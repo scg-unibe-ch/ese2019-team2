@@ -94,4 +94,10 @@ export class AuthService {
         return this.http.post<any>('http://localhost:3000/users/profileInformation', {token: localStorage.getItem('sessionToken')}, {observe: 'response'});
     }
 
+    getUsername() {
+        const token = localStorage.getItem('sessionToken');
+        const tokenPayload = decode(token);
+        return tokenPayload.payload.username;
+    }
+
 }

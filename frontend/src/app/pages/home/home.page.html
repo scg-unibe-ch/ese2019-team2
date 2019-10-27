@@ -1,3 +1,25 @@
 <app-header></app-header>
 <ion-content>
+    <ion-grid>
+        <ion-row class="category-previews">
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/location']" title="Location" imgSrc="http://lorempixel.com/480/640/nightlife"></app-preview-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/catering']" title="Catering" imgSrc="http://lorempixel.com/480/640/food"></app-preview-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/entertainment']" title="Entertainment" imgSrc="http://lorempixel.com/480/640/people"></app-preview-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/security']" title="Security" imgSrc="http://lorempixel.com/480/640/sports"></app-preview-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/marketing']" title="Marketing" imgSrc="http://lorempixel.com/480/640/cats"></app-preview-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category/miscellaneous']" title="Misc." imgSrc="http://lorempixel.com/480/640/abstract"></app-preview-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

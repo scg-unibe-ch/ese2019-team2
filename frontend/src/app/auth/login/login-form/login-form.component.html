@@ -1,4 +1,4 @@
-<form margin-bottom [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+<form margin-bottom [formGroup]="loginForm" (keydown.enter)="onSubmit(loginForm.value)" (ngSubmit)="onSubmit(loginForm.value)">
   <app-form-input [givenName]="'username'" [text]="'Username'"[validationMessages]="validationMessages.username" [registerForm]="loginForm"></app-form-input>
   <app-form-input [givenName]="'password'" [text]="'Password'"[validationMessages]="validationMessages.password" [registerForm]="loginForm" [type]="'password'"></app-form-input>
   <ion-item *ngIf="showWrongCredentials"> 

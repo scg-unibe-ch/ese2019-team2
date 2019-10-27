@@ -48,7 +48,7 @@ export class LoginFormComponent implements OnInit {
              this.popCtrl.dismiss();
            };
          });
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/']);
         }, error => {
           this.showWrongCredentials = true;
           this.loginForm.get('password').reset(); 

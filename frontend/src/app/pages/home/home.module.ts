@@ -8,6 +8,7 @@ import { HomePage } from './home.page';
 
 import { AuthModule } from '../../auth/auth.module';
 import {HeaderModule} from '../../common/header/header.module';
+import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {HeaderModule} from '../../common/header/header.module';
         component: HomePage
       }
     ]),
-      HeaderModule
+      HeaderModule,
+      PreviewCardModule
   ],
   declarations: [HomePage]
 })

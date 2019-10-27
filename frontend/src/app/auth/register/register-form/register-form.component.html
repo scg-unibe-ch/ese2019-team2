@@ -1,4 +1,4 @@
-<form margin-bottom [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+<form margin-bottom [formGroup]="registerForm"  (keydown.enter)="onSubmit(registerForm.value)" (ngSubmit)="onSubmit(registerForm.value)">
   <app-form-input [givenName]="'lastName'" [text]="'Last Name'" [validationMessages]="validationMessages.lastName" [registerForm]="registerForm"></app-form-input>
   <app-form-input [givenName]="'firstName'" [text]="'First Name'"[validationMessages]="validationMessages.firstName" [registerForm]="registerForm"></app-form-input>
   <app-form-input [givenName]="'email'" [text]="'Email'"[validationMessages]="validationMessages.email" [registerForm]="registerForm" [type]="'email'" [inputMode]="'email'"></app-form-input>

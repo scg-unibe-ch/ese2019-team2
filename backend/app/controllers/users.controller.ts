@@ -18,7 +18,7 @@ router.post('/login', async (req: Request, res: Response) => {
         }
 
         if (!user) {
-           return res.status(418).json({error: "No such user found"});
+           return res.status(418).json({error: 'No such user found'});
         }
         const match = await bcrypt.compare(req.body.password, user.password);
         if (!match) {

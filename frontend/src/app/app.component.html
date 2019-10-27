@@ -8,6 +8,12 @@
         <ion-content >
           <ion-list >
             <ion-menu-toggle auto-hide="false">
+                <ion-item [routerDirection]="'root'" [routerLink]="['/']">
+                  <ion-label>
+                    <ion-icon slot="start" name="home"></ion-icon>
+                   Home
+                  </ion-label>
+                </ion-item> 
                 <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'" [routerLink]="['/admin']">
                   <ion-label>
                     <ion-icon slot="start" name="settings"></ion-icon>
