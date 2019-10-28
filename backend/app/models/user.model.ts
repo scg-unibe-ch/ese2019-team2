@@ -1,5 +1,7 @@
+// @ts-ignore
 const mongoose = require('mongoose');
 
+// @ts-ignore
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({

@@ -1,6 +1,8 @@
-// const mongoose = require('mongoose');
+// @ts-ignore
+const mongoose = require('mongoose');
 
-// const Schema = mongoose.Schema;
+// @ts-ignore
+const Schema = mongoose.Schema;
 
 let ServiceSchema = new Schema({
     category: {
@@ -16,7 +18,7 @@ let ServiceSchema = new Schema({
         type: String
     },
     img: {
-        type: File
+        type: String
     },
     price: {
         type: Number

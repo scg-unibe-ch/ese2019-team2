@@ -3,7 +3,7 @@ import express from 'express';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
 import { UsersController } from './controllers';
-import { ServicesController } from './controllers/services.controller';
+import { ServicesController } from './controllers';
 
 const mongoose = require('mongoose');
 

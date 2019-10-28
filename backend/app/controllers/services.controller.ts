@@ -4,14 +4,14 @@ const router: Router = Router();
 
 
 router.get('/:category', async (req: Request, res: Response) => {
-    Service.find({category: req.params.category}), (err: any, service: any) => {
+    Service.find({category: req.params.category}, (err: any, services: any) => {
         if (err) {
             console.log(err);
             return res.status(418).json({error: err});
+        } else {
+            res.status(200).json(services);
         }
-        res.statusCode = 200;
-
-    };
+    });
 });
 
 router.get('/details/:id', async (req: Request, res: Response) => {
