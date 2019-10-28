@@ -1,22 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.page.html',
-  styleUrls: ['./category.page.scss'],
+    selector: 'app-category',
+    templateUrl: './category.page.html',
+    styleUrls: ['./category.page.scss'],
 })
 export class CategoryPage implements OnInit {
-  private title ="";
-  constructor(private route: ActivatedRoute) { }
+    private title = '';
+    private hasSubcategories: boolean;
+    private categories = [
+        {title: 'beispiel', imgSrc: 'http://lorempixel.com/480/640/nightlife'},
+        {title: 'beispiel2', imgSrc: 'http://lorempixel.com/480/640/cats'}
+    ];
 
-  ngOnInit() {
-  }
+    constructor(private route: ActivatedRoute) {
+    }
 
-  ionViewWillEnter(){
-    const categoryName = this.route.snapshot.paramMap.get('categoryName');
-    this.title = categoryName;
+    ngOnInit() {
+    }
 
-  }
+    ionViewWillEnter() {
+        const categoryName = this.route.snapshot.paramMap.get('categoryName');
+        this.title = categoryName;
+        this.hasSubcategories = this.categories.length > 0;
+    }
 
 }

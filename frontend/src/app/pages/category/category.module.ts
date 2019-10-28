@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CategoryPage } from './category.page';
 import {HeaderModule} from "../../common/header/header.module";
+import {PreviewCardModule} from "../../common/preview-card/preview-card.module";
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        HeaderModule
+        HeaderModule,
+        PreviewCardModule
     ],
   declarations: [CategoryPage]
 })
