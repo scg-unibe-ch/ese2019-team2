@@ -3,7 +3,7 @@ const Service = require('../models/service.model');
 const router: Router = Router();
 
 
-router.get('/services/:category', async (req: Request, res: Response) => {
+router.get('/:category', async (req: Request, res: Response) => {
     Service.find({category: req.params.category}), (err: any, service: any) => {
         if (err) {
             console.log(err);
@@ -14,11 +14,11 @@ router.get('/services/:category', async (req: Request, res: Response) => {
     };
 });
 
-router.get('/services/details/:id', async (req: Request, res: Response) => {
+router.get('/details/:id', async (req: Request, res: Response) => {
 
 });
 
-router.post('services/add', async (req: Request, res: Response) => {
+router.post('/add', async (req: Request, res: Response) => {
 
 });
 
