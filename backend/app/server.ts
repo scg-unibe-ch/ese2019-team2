@@ -8,6 +8,7 @@ import { ServicesController } from './controllers';
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/users');
+mongoose.connect('mongodb://localhost:27017/services');
 const connection = mongoose.connection;
 // create a new express application instance
 const app: express.Application = express();
