@@ -88,7 +88,7 @@ October 30, 2019
 ### To be discussed
 
 - Should we merge databases to work with relations?
-- MongoDB Atlas as hosting for database? 
+- MongoDB Atlas as host for database? 
  
 ### Learning outcomes
 
