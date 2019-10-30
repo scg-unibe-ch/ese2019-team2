@@ -73,14 +73,23 @@ October 30, 2019
 
 #### Backend
 
-To be done by backend
+- Added database for services
+- Added model for services
+- Added get-function for categories
+- Added get-function for details
+- Added post-function for services
 
 ### Biggest challenges and risks
 
 - Declaring deadlines somehow doesn't work in our group yet. This makes working on parts that depend on the other side (frontend-backend) unnerving. So this is a challenge that needs to be tackled.
 - Need make tests and refactor code. Current approach is not the best, as we prioritze new features over maintaining the code.
   - To tackle this we need to make sure the work is evenly split up, so new features can be implemented, as well as code can be maintained.
-  
+
+### To be discussed
+
+- Should we merge databases to work with relations?
+- MongoDB Atlas as hosting for database? 
+ 
 ### Learning outcomes
 
 #### Gerneral learning outcomes
@@ -94,6 +103,6 @@ None.
 
 #### Backend learning outcomes
 
-To be done by backend.
+- Learned how to implement images in database (in progress)
 
 [github-link]:https://github.com/scg-unibe-ch/ese2019-team2
