@@ -4,25 +4,31 @@ const mongoose = require('mongoose');
 // @ts-ignore
 const Schema = mongoose.Schema;
 
-let UserSchema = new Schema({
-    lastName: {
+let ServiceSchema = new Schema({
+    category: {
         type: String
     },
-    firstName: {
+    subCategory: {
         type: String
     },
-    email: {
+    userID: {
         type: String
     },
-    username: {
+    title: {
         type: String
     },
-    password: {
+    img: {
         type: String
     },
-    role: {
+    price: {
+        type: Number
+    },
+    description: {
         type: String
+    },
+    rating: {
+        type: Number
     }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Service', ServiceSchema);

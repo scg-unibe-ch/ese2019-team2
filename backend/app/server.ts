@@ -3,10 +3,12 @@ import express from 'express';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
 import { UsersController } from './controllers';
+import { ServicesController } from './controllers';
 
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/users');
+mongoose.connect('mongodb://localhost:27017/services');
 const connection = mongoose.connection;
 // create a new express application instance
 const app: express.Application = express();
@@ -26,6 +28,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/users', UsersController);
+app.use('/services', ServicesController);
 
 // start serving the application on the given port
 connection.once('open', () => {
