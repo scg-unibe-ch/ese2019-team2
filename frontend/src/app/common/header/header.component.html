@@ -7,12 +7,12 @@
             <ion-row>
                 <ion-col>
                     <ion-item lines="none">
-                    <ion-avatar [routerLink]="['/']" class="heaeder-logo"><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
+                    <ion-avatar [routerLink]="['/']" class="header-logo"><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
                     <ion-title class="ion-text-capitalize">
                         {{ title }}
                     </ion-title>
                     </ion-item>
-                </ion-col> 
+                </ion-col>
                 <ion-col class="ion-text-right">
                     <app-overlay-controller
                         *ngIf="!isThisLoginOrRegisterPage() && !auth.isLoggedIn() && auth.displayPopover()">
@@ -27,6 +27,5 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-
     </ion-toolbar>
 </ion-header>
