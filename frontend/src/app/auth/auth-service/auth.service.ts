@@ -19,7 +19,7 @@ export class AuthService {
         return this.http.post<any>('http://localhost:3000/users/login', {username, password}, {observe: 'response'})
             .pipe(map(data => {
                 const userInformation = (data.body.userInformation);
-                const token = data.body.token; 
+                const token = data.body.token;
                 const expirationTime = decode(token).exp;
                 if (data.status === 200 && userInformation.username){
                     this.currentUser = this.generateUserFromJSON(userInformation, token);
@@ -30,7 +30,7 @@ export class AuthService {
             }));
     }
 
-    logout(){
+    logout() {
         this.removeItems();
         this.surpressPopover = true;
         this.router.navigate(['/']);
@@ -56,8 +56,9 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        if (!Boolean(localStorage.getItem('sessionToken'))) return false;
-        const dateNow: number = Math.floor(Date.now()/1000);
+        if (!Boolean(localStorage.getItem('sessionToken'))) { return false; }
+        const dateNow: number = Math.floor(Date.now() / 1000);
+        // tslint:disable-next-line:radix
         const expiration: number = parseInt(localStorage.getItem('expiration'));
         const expired = expiration - dateNow < 0;
         if (expired) {
@@ -74,7 +75,7 @@ export class AuthService {
         this.surpressPopover = true;
       }
 
-    removeItems(){
+    removeItems() {
         localStorage.removeItem('sessionToken');
         localStorage.removeItem('expiration');
     }
@@ -83,14 +84,16 @@ export class AuthService {
         const token = localStorage.getItem('sessionToken');
         const tokenPayload = decode(token);
         const currentRole = tokenPayload.payload.role;
-        if (expectedRole === currentRole)
+        if (expectedRole === currentRole) {
             return true;
-        else if (expectedRole === 'user' && currentRole === 'admin')
+        } else if (expectedRole === 'user' && currentRole === 'admin') {
             return true;
-        else return false;
+        } else {
+            return false;
+        }
     }
 
-    getUserInformation(){
+    getUserInformation() {
         return this.http.post<any>('http://localhost:3000/users/profileInformation', {token: localStorage.getItem('sessionToken')}, {observe: 'response'});
     }
 
