@@ -4,7 +4,17 @@
         <ion-row class="searchbar">
             <ion-searchbar></ion-searchbar>
         </ion-row>
+
+<ion-item-divider class="container">
+        <ion-row class="title">
+            <ion-col size-md_="12">
+            <ion-title>Categories</ion-title>
+            </ion-col>
+        </ion-row>
+</ion-item-divider>
+
         <ion-row class="category-previews">
+
             <ion-col size="12" size-sm="6" size-md="3">
                 <app-preview-card [routerLink]="['/category/location']" title="Location"></app-preview-card>
             </ion-col>
@@ -25,4 +35,14 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <ion-grid>
+    <ion-row class="service">
+        <ion-col size-md_="12">
+            <ion-label>Do you offer a service?</ion-label>
+            <p size="6">Create now your service.</p>
+            <ion-button class="button"[routerLink]="['/newservice']">Create service!</ion-button>
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+
 </ion-content>
