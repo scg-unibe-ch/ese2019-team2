@@ -1,28 +1,13 @@
-<app-header></app-header>
+<app-header title="Home"></app-header>
 <ion-content>
     <ion-row class="searchbar">
         <ion-searchbar></ion-searchbar>
     </ion-row>
     <ion-grid>
         <ion-row class="category-previews">
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/location']" title="Location"></app-preview-card>
+            <ion-col *ngFor="let category of categories" size="12" size-sm="6" size-md="3">
+                <app-preview-card [routerLink]="['/category', category.name]" title={{category.name}}></app-preview-card>
             </ion-col>
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/catering']" title="Catering"></app-preview-card>
-            </ion-col>
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/entertainment']" title="Entertainment"></app-preview-card>
-            </ion-col>
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/security']" title="Security"></app-preview-card>
-            </ion-col>
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/marketing']" title="Marketing"></app-preview-card>
-            </ion-col>
-            <ion-col size="12" size-sm="6" size-md="3">
-                <app-preview-card [routerLink]="['/category/miscellaneous']" title="Misc."></app-preview-card>
-            </ion-col>
-        </ion-row>
+          </ion-row>
     </ion-grid>
 </ion-content>

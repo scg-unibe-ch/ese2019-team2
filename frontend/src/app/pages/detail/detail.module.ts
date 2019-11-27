@@ -10,6 +10,8 @@ import {DetailPage} from './detail.page';
 import {HeaderModule} from '../../common/header/header.module';
 import {ContactInformationModule} from '../../common/contact-information/contact-information.module';
 import {ImageSliderModule} from '../../common/image-slider/image-slider.module';
+import {EssentialModule} from '../../common/essential/essential.module';
+import {DescriptionModule} from '../../common/description/description.module';
 
 const routes: Routes = [
     {
@@ -26,7 +28,9 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         HeaderModule,
         ContactInformationModule,
-        ImageSliderModule
+        ImageSliderModule,
+        EssentialModule,
+        DescriptionModule
     ],
     declarations: [DetailPage]
 })

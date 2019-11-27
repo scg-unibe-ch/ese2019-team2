@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from '../../models/user';
+import {UserModel} from '../../models/user.model';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import decode from 'jwt-decode';
     providedIn: 'root',
 })
 export class AuthService {
-    currentUser: User;
+    currentUser: UserModel;
     surpressPopover: boolean = false;
 
     constructor(private http: HttpClient, private router: Router) {
@@ -51,8 +51,8 @@ export class AuthService {
             }));
     }
 
-    generateUserFromJSON(data, token): User {
-       return new User(data._id, token, data.username, data.firstName, 'user');
+    generateUserFromJSON(data, token): UserModel {
+       return new UserModel(data._id, token, data.username, data.firstName, 'user');
     }
 
     isLoggedIn(): boolean {

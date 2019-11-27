@@ -1,6 +1,6 @@
-import { Category } from './models/category';
+import { CategoryModel } from './models/category.model';
 
-export const CATEGORIES: Category[] = [
+export const CATEGORIES: CategoryModel[] = [
     {name: 'Location'},
     {name: 'Catering'},
     {name: 'Entertainment'},
