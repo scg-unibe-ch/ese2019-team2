@@ -13,12 +13,21 @@
 .container{
   margin-bottom:10px;
   margin-top: 20px;
+  text-align: center;
+}
+ion-title{
+  text-align: center;
+  border-bottom: 2px;
+  border-bottom-color: #1e2023;
 }
 .title {
   margin-bottom: 10px;
+  padding-top: 50px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 6px;
+  border-bottom: 5px;
+
 }
 .category-previews {
   margin-bottom: 50px;
