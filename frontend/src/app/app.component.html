@@ -8,42 +8,48 @@
         <ion-content >
           <ion-list >
             <ion-menu-toggle auto-hide="false">
-                <ion-item [routerDirection]="'root'" [routerLink]="['/']">
-                  <ion-label>
-                    <ion-icon slot="start" name="home"></ion-icon>
-                   Home
-                  </ion-label>
-                </ion-item> 
-                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'" [routerLink]="['/admin']">
-                  <ion-label>
-                    <ion-icon slot="start" name="settings"></ion-icon>
-                   Admin
-                  </ion-label>
+                <ion-item [routerDirection]="'root'" [routerLink]="['/home']">
+                    <ion-label>
+                        <ion-icon slot="start" name="home"></ion-icon>
+                        Home
+                    </ion-label>
                 </ion-item>
-              <ion-item *ngIf="auth.isLoggedIn()" [routerDirection]="'root'" [routerLink]="['/profile']">
-                <ion-label>
-                <ion-icon slot ="start" name="person"></ion-icon>
-                 Profile
-                </ion-label>
-              </ion-item>
-              <ion-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()" [routerDirection]="'root'" [routerLink]="['']">
-                <ion-label>
-                  <ion-icon slot="start" name="log-out"></ion-icon>
-                 Sign out
-                </ion-label>
-              </ion-item>
-              <ion-item *ngIf="!auth.isLoggedIn()" [routerDirection]="'root'" [routerLink]="['/login']">
-                <ion-label>
-                <ion-icon slot="start" name="log-in"></ion-icon>
-                 Login
-                </ion-label>
-              </ion-item>
-              <ion-item *ngIf="!auth.isLoggedIn()"[routerDirection]="'root'" [routerLink]="['/register']">
-                <ion-label>
-                  <ion-icon slot="start" name="key"></ion-icon>
-                 Register
-                </ion-label>
-              </ion-item>
+                <ion-item *ngIf="auth.isLoggedIn()" [routerDirection]="'root'" [routerLink]="['/profile']">
+                    <ion-label>
+                        <ion-icon slot ="start" name="profile"></ion-icon>
+                        Profile
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon slot="start" name="services"></ion-icon>
+                        My Services
+                    </ion-label>
+                </ion-item>
+                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'" [routerLink]="['/admin']">
+                    <ion-label>
+                        <ion-icon slot="start" name="settings"></ion-icon>
+                        Admin
+                    </ion-label>
+                </ion-item>
+                <ion-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()" [routerDirection]="'root'" [routerLink]="['']">
+                    <ion-label>
+                        <ion-icon slot="start" name="log-out"></ion-icon>
+                        Sign out
+                    </ion-label>
+                </ion-item>
+                <ion-item *ngIf="!auth.isLoggedIn()" [routerDirection]="'root'" [routerLink]="['/login']">
+                    <ion-label>
+                        <ion-icon slot="start" name="log-in"></ion-icon>
+                        Login
+                    </ion-label>
+                </ion-item>
+                <ion-item *ngIf="!auth.isLoggedIn()"[routerDirection]="'root'" [routerLink]="['/register']">
+                    <ion-label>
+                        <ion-icon slot="start" name="key"></ion-icon>
+                        Register
+                    </ion-label>
+                </ion-item>
             </ion-menu-toggle>
           </ion-list>
         </ion-content>

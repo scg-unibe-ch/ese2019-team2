@@ -1,10 +1,10 @@
 <app-header [title]="title"></app-header>
 <ion-content>
-    <ng-container *ngIf="hasSubcategories">
+    <ng-container>
         <ion-grid>
             <ion-row class="category-previews">
                 <ion-col size="12" size-sm="6" size-md="3" *ngFor="let category of categories">
-                    <app-preview-card [routerLink]="['/category/', title, category.title]" routerDirection="root" [title]="category.title" [imgSrc]="category.imgSrc"></app-preview-card>
+                    <app-preview-card [routerLink]="['/category', category.title, 'detail']" routerDirection="root" [title]="category.title" [imgSrc]="category.imgSrc"></app-preview-card>
                 </ion-col>
             </ion-row>
         </ion-grid>

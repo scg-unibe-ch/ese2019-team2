@@ -1,9 +1,9 @@
 <app-header></app-header>
 <ion-content>
+    <ion-row class="searchbar">
+        <ion-searchbar></ion-searchbar>
+    </ion-row>
     <ion-grid>
-        <ion-row class="searchbar">
-            <ion-searchbar></ion-searchbar>
-        </ion-row>
         <ion-row class="category-previews">
             <ion-col size="12" size-sm="6" size-md="3">
                 <app-preview-card [routerLink]="['/category/location']" title="Location"></app-preview-card>
