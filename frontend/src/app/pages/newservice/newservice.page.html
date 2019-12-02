@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>newservice</ion-title>
+    <ion-title>New Service</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <app-form-input [givenName]="'lastName'" [text]="'Last Name'" [validationMessages]="validationMessages.lastName" [registerForm]="registerForm"></app-form-input>
+  <form margin-bottom [formGroup]="serviceForm" (keydown.enter)="onSubmit(serviceForm.value)" (ngSubmit)="onSubmit(serviceForm.value)">
+    <app-form-input [givenName]="'category'" [text]="'Category'" [validationMessages]="validationMessages.category" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'subCategory'" [text]="'Sub-category'" [validationMessages]="validationMessages.subCategory" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'title'" [text]="'Title'" [validationMessages]="validationMessages.title" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'img'" [text]="'Image Url'" [validationMessages]="validationMessages.img" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'price'" [text]="'Price'" [validationMessages]="validationMessages.price" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'description'" [text]="'Description'" [validationMessages]="validationMessages.description" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'rating'" [text]="'Rating'" [validationMessages]="validationMessages.rating" [registerForm]="serviceForm"></app-form-input>
+
+    <ion-item *ngIf="errorMessage">
+      <ion-text class="error-message" >{{ errorMessage }}</ion-text>
+    </ion-item>
+    <ion-button size="default" type="submit" [disabled]="!serviceForm.valid || !auth.isLoggedIn() || !canCreateService()">Create service!</ion-button>
+  </form>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import {alphabeticOnlyValidator, passwordValidator} from '../../register/register-form/CustomValidator';
+import {alphabeticOnlyValidator, passwordValidator} from '../../../CustomValidator';
 import {AuthService} from '../../auth-service/auth.service';
 import {first} from 'rxjs/operators';
 import { ViewController } from '@ionic/core';

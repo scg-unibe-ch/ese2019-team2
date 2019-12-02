@@ -1,7 +1,7 @@
 <ion-row class="service">
     <ion-col size-md="12">
         <ng-container [ngSwitch]="auth.isLoggedIn()">
-            <ng-container *ngSwitchCase=true [ngSwitch]="auth.canCreateNewService()">
+            <ng-container *ngSwitchCase=true [ngSwitch]="canCreateNewService()">
                 <ng-container *ngSwitchCase=true>
                     <p>Do you offer a service?</p>
                     <p>Create your service now.</p>

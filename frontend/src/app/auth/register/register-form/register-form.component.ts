@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { passwordValidator, alphabeticOnlyValidator } from './CustomValidator';
+import { passwordValidator, alphabeticOnlyValidator } from '../../../CustomValidator';
 import { AuthService } from '../../auth-service/auth.service';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -70,7 +70,7 @@ export class RegisterFormComponent implements OnInit {
           this.popCtrl.getTop().then(overlay => {
             if (!isUndefined(overlay)) {
               this.popCtrl.dismiss();
-            };
+            }
           });
             this.router.navigate(['/profile']);
         }, err => {

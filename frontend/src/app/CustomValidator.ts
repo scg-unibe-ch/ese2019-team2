@@ -1,9 +1,9 @@
 import { AbstractControl } from '@angular/forms';
 
 export function passwordValidator(control: AbstractControl) {
-    if (control.value === null) return;
+    if (control.value === null) { return; }
     const password: string = control.value.toString();
-    
+
     if (password === password.toLowerCase() || password === password.toUpperCase()) {
         return { passwordUpperLowerCaseRestriction: true };
     }
@@ -20,8 +20,17 @@ export function passwordValidator(control: AbstractControl) {
 export function alphabeticOnlyValidator(control: AbstractControl){
     const input: string = control.value.toString();
     const alphabeticRegex = /^[A-ZÄÖÜÉÈÊÂÀÁÔÒÓÛÙÚÎÌÍß]+$/i;
-    if (!input.match(alphabeticRegex)){
+    if (!input.match(alphabeticRegex)) {
         return { nonalphabeticChars: true};
+    }
+    return null;
+}
+
+export function numberValidator(control: AbstractControl) {
+    const input: string = control.value.toString();
+    const numericRegex = /^\d*\d\.?\d?\d?$/;
+    if (!input.match(numericRegex)) {
+        return { nonnumeric: true };
     }
     return null;
 }
