@@ -38,6 +38,9 @@ export class RegisterFormComponent implements OnInit {
       { type: 'passwordUpperLowerCaseRestriction', message: 'The password has to contain at least an Upper- and a Lowercase character.' },
       { type: 'passwordSpecialCharRestriction', message: 'The password has to contain at least one digit or special character.' },
       { type: 'passwordSpaceRestriction', message: 'The password can\'t contain a space' }
+    ],
+    role: [
+      { type: 'required'}
     ]
   };
 
@@ -49,7 +52,8 @@ export class RegisterFormComponent implements OnInit {
       firstName: ['', [Validators.required, alphabeticOnlyValidator]],
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6), passwordValidator]]
+      password: ['', [Validators.required, Validators.minLength(6), passwordValidator]],
+      role: ['', [Validators.required]]
     }, {});
   }
 
@@ -59,7 +63,8 @@ export class RegisterFormComponent implements OnInit {
     const email = this.registerForm.get('email').value;
     const username = this.registerForm.get('username').value;
     const password = this.registerForm.get('password').value;
-    const loginResponse = this.auth.register(lastname, firstname, email, username, password);
+    const role = this.registerForm.get('role').value;
+    const loginResponse = this.auth.register(lastname, firstname, email, username, password, role);
     loginResponse.pipe(first())
         .subscribe(data => {
           this.popCtrl.getTop().then(overlay => {

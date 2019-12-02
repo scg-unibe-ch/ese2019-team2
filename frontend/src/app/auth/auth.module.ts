@@ -22,7 +22,8 @@ import {FormInputComponent} from './form-input/form-input.component';
   exports: [
     OverlayControllerComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    FormInputComponent
   ],
   imports: [
     CommonModule,

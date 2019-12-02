@@ -66,7 +66,7 @@ router.post('/register', async (req: Request, res: Response) => {
                 email: req.body.email,
                 username: req.body.username,
                 password: await bcrypt.hash(req.body.password, saltRounds),
-                role: 'user'
+                role: req.body.role
             });
             // tslint:disable-next-line:no-shadowed-variable
             user.save((err: Error, user: any) => {

@@ -36,16 +36,16 @@ export class AuthService {
         this.router.navigate(['/']);
     }
 
-    register(lastname: string, firstname: string, email: string, username: string, password: string) {
-        return this.http.post<any>('http://localhost:3000/users/register', {lastname, firstname, email, username, password}, {observe: 'response'})
+    register(lastname: string, firstname: string, email: string, username: string, password: string, role: string) {
+        return this.http.post<any>('http://localhost:3000/users/register', {lastname, firstname, email, username, password, role}, {observe: 'response'})
             .pipe(map(data => {
                 const userInformation = (data.body.userInformation);
                 const token = data.body.token;
                 const expirationTime = decode(token).exp;
-                if (data.status === 201 && userInformation.username){
+                if (data.status === 201 && userInformation.username) {
                     this.currentUser = this.generateUserFromJSON(userInformation, token);
                     localStorage.setItem('sessionToken', this.currentUser.token);
-                    localStorage.setItem('expiration', expirationTime)
+                    localStorage.setItem('expiration', expirationTime);
                     return this.currentUser;
                 }
             }));

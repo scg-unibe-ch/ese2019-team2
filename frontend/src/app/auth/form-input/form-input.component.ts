@@ -15,16 +15,18 @@ export class FormInputComponent implements OnInit {
   @Input() inputMode = 'text';
 
   isPassword = false;
-  isShowingPw: boolean = false;
-  get isHidingPw(){
+  isRole = false;
+  isShowingPw = false;
+  get isHidingPw() {
     return !this.isShowingPw;
   }
 
-  constructor() { 
+  constructor() {
    }
 
-   ngOnInit(){
+   ngOnInit() {
     this.isPassword = this.type === 'password';
+    this.isRole = this.type === 'role';
    }
 
 
@@ -34,8 +36,8 @@ export class FormInputComponent implements OnInit {
     }
   }
 
-  showPassword(bool: boolean){
-    this.type = bool ? 'text': 'password';
+  showPassword(bool: boolean) {
+    this.type = bool ? 'text' : 'password';
     this.isShowingPw = bool;
   }
 }
