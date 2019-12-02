@@ -26,28 +26,28 @@
                         My Services
                     </ion-label>
                 </ion-item>
-                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'" [routerLink]="['/admin']">
-                    <ion-label>
-                        <ion-icon slot="start" name="settings"></ion-icon>
-                        Admin
-                    </ion-label>
-                </ion-item>
                 <ion-item *ngIf="auth.isLoggedIn()" (click)="auth.logout()" [routerDirection]="'root'" [routerLink]="['']">
                     <ion-label>
                         <ion-icon slot="start" name="log-out"></ion-icon>
-                        Sign out
+                        Log out
                     </ion-label>
                 </ion-item>
                 <ion-item *ngIf="!auth.isLoggedIn()" [routerDirection]="'root'" [routerLink]="['/login']">
                     <ion-label>
                         <ion-icon slot="start" name="log-in"></ion-icon>
-                        Login
+                        Log in
                     </ion-label>
                 </ion-item>
                 <ion-item *ngIf="!auth.isLoggedIn()"[routerDirection]="'root'" [routerLink]="['/register']">
                     <ion-label>
                         <ion-icon slot="start" name="key"></ion-icon>
                         Register
+                    </ion-label>
+                </ion-item>
+                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'" [routerLink]="['/admin']">
+                    <ion-label>
+                        <ion-icon slot="start" name="settings"></ion-icon>
+                        Admin
                     </ion-label>
                 </ion-item>
             </ion-menu-toggle>
