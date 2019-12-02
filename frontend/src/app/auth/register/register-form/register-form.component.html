@@ -5,20 +5,7 @@
   <app-form-input [givenName]="'username'" [text]="'Username'" [validationMessages]="validationMessages.username" [registerForm]="registerForm"></app-form-input>
   <app-form-input [givenName]="'password'" [text]="'Password'" [validationMessages]="validationMessages.password" [registerForm]="registerForm" [type]="'password'"></app-form-input>
   <app-form-input [givenName]="'role'" [text]="'Role'" [validationMessages]="validationMessages.role" [registerForm]="registerForm" [type]="'role'"></app-form-input>
-<!--
-  <ion-radio-group class="roleButton">
-    <ion-list-header>Role</ion-list-header>
 
-    <ion-item>
-      <ion-label>User</ion-label>
-      <ion-radio slot="start" value="'user'" checked></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Service provider</ion-label>
-      <ion-radio slot="start" value="'admin'"></ion-radio>
-    </ion-item>
-  </ion-radio-group>-->
   <ion-item *ngIf="errorMessage">
     <ion-text class="error-message" >{{ errorMessage }}</ion-text>
   </ion-item>

@@ -9,6 +9,7 @@ import { HomePage } from './home.page';
 import { AuthModule } from '../../auth/auth.module';
 import {HeaderModule} from '../../common/header/header.module';
 import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
+import {FooterModule} from '../../common/footer/footer/footer.module';
 
 @NgModule({
   imports: [
@@ -22,8 +23,9 @@ import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
         component: HomePage
       }
     ]),
-      HeaderModule,
-      PreviewCardModule
+    HeaderModule,
+    PreviewCardModule,
+    FooterModule
   ],
   declarations: [HomePage]
 })

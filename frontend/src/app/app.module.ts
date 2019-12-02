@@ -11,11 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth-service/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RoleGuardService } from './auth/auth-guard-service/roleguard.service';
+import { CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule],
   providers: [
     StatusBar,
     SplashScreen,

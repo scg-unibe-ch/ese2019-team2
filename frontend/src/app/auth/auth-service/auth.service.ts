@@ -103,4 +103,8 @@ export class AuthService {
         return tokenPayload.payload.username;
     }
 
+    canCreateNewService() {
+        return this.canOpen('admin');
+    }
+
 }
