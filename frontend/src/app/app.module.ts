@@ -12,6 +12,8 @@ import { AuthService } from './auth/auth-service/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RoleGuardService } from './auth/auth-guard-service/roleguard.service';
 import { CommonModule} from '@angular/common';
+import {SearchService} from './services/search/search.service';
+import {CreateService} from './services/create/create.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,8 @@ import { CommonModule} from '@angular/common';
     SplashScreen,
     AuthService,
     RoleGuardService,
+    SearchService,
+    CreateService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],

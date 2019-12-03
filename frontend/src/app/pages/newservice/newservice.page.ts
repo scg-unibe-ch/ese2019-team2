@@ -6,6 +6,7 @@ import {isUndefined} from "util";
 import {PopoverController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {first} from "rxjs/operators";
+import {CreateService} from '../../services/create/create.service';
 
 @Component({
   selector: 'app-newservice',
@@ -36,6 +37,10 @@ export class NewservicePage implements OnInit {
       { type: 'required', message: 'This field can\'t be empty.'},
       { type: 'nonnumeric', message: 'The price has to be numeric'}
     ],
+    location: [
+      { type: 'required', message: 'This field can\'t be empty.'},
+      { type: 'nonalphabeticChars', message: 'The sub-category can only contain alphabetic chars.'}
+    ],
     description: [
       { type: 'required', message: 'This field can\'t be empty.'},
     ],
@@ -44,7 +49,7 @@ export class NewservicePage implements OnInit {
     ]
   };
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
+  constructor(private creator: CreateService, private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
 
   ngOnInit() {
     this.serviceForm = this.formBuilder.group({
@@ -54,6 +59,7 @@ export class NewservicePage implements OnInit {
       title: ['', [Validators.required]],
       img: ['', []],
       price: ['', [Validators.required, numberValidator]],
+      location: ['', [Validators.required, alphabeticOnlyValidator]],
       description: ['', [Validators.required]],
       rating: ['', [numberValidator]],
     }, {});
@@ -62,19 +68,25 @@ export class NewservicePage implements OnInit {
   onSubmit(value: any) {
     const category = this.serviceForm.get('category').value;
     const subCategory = this.serviceForm.get('subCategory').value;
-    const userID = this.auth.getUserID();
+    // ToDo: still not getting the ID even though json with correct user is given back
+    const userID = this.creator.getUserID();
     const title = this.serviceForm.get('title').value;
     const img = this.serviceForm.get('img').value;
     const price = this.serviceForm.get('price').value;
+    const location = this.serviceForm.get('location').value;
     const description = this.serviceForm.get('description').value;
     const rating = this.serviceForm.get('rating').value;
-    this.auth.createNewService(category, subCategory, userID, title, img, price, description, rating).subscribe(() => {
+    this.creator.createNewService(category, subCategory, userID, title, img, price, location, description, rating).subscribe(() => {
       this.router.navigate(['/home']);
     });
   }
 
   canCreateService() {
     return this.auth.canOpen('admin');
+  }
+
+  printuserid() {
+    console.log(this.creator.getUserID());
   }
 
 }

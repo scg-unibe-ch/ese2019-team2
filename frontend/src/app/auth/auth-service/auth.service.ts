@@ -21,7 +21,7 @@ export class AuthService {
                 const userInformation = (data.body.userInformation);
                 const token = data.body.token;
                 const expirationTime = decode(token).exp;
-                if (data.status === 200 && userInformation.username){
+                if (data.status === 200 && userInformation.username) {
                     this.currentUser = this.generateUserFromJSON(userInformation, token);
                     localStorage.setItem('sessionToken', this.currentUser.token);
                     localStorage.setItem('expiration', expirationTime);
@@ -103,24 +103,5 @@ export class AuthService {
         return tokenPayload.payload.username;
     }
 
-    getUserID() {
-        const token = localStorage.getItem('sessionToken');
-        const tokenPayload = decode(token);
-        return tokenPayload.payload._id;
-    }
-
-    createNewService(category: string, subCategory: string, userID: string, title: string, img: string, price: number, description: string, rating: number) {
-        const service = {
-            category,
-            subCategory,
-            userID,
-            title,
-            img,
-            price,
-            description,
-            rating
-        };
-        return this.http.post<any>('http://localhost:3000/services/add', service);
-    }
 
 }

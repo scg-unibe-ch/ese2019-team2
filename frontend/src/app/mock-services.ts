@@ -1,6 +1,6 @@
 import {ServiceModel} from './models/service.model';
 
-export const SERVICES: ServiceModel[] = [
+export const SERVICES = [
     {
         id: 1,
         img: '../assets/catering1',

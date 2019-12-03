@@ -1,10 +1,10 @@
-<app-header></app-header>
+<app-header>{{currenturl}}</app-header>
 <ion-content>
     <ng-container>
         <ion-grid>
             <ion-row class="service-previews">
-                <ion-col *ngFor="let category of categories" size="12" size-sm="6" size-md="3">
-                    <app-preview-card [title]=category.name></app-preview-card>
+                <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
+                    <app-preview-card [title]=service.name></app-preview-card>
                 </ion-col>
             </ion-row>
         </ion-grid>

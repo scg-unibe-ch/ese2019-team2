@@ -13,13 +13,13 @@ router.get('/:category', async (req: Request, res: Response) => {
     });
 });
 
-router.get('/details/:id', async (req: Request, res: Response) => {
-    Service.findById(req.params.id, (err: any, service: any) => {
+router.get('/details/:category/:subCategory/:img', async (req: Request, res: Response) => {
+    Service.find({category: req.params.category, subCategory: req.params.subCategory, img: req.params.img}, (err: any, service: any) => {
         if (err) {
             console.log(err);
             return res.status(418).json({error: err});
         }
-        res.json(service);
+        return res.status(200).json(service);
     });
 });
 

@@ -43,10 +43,7 @@ router.get('/:name', async (req: Request, res: Response) => {
         if (user.length === 0) {
            return res.status(418).json({error: 'No such user found'});
         }
-        res.statusCode = 200;
-        getUserInformation(user._id).then(data => {
-            res.json(data);
-        });
+        return res.status(200).json(user);
     });
 });
 
