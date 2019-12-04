@@ -29,7 +29,7 @@ export class NewservicePage implements OnInit {
     userID: [
       { type: 'required'},
     ],
-    title: [
+    name: [
       { type: 'required', message: 'This field can\'t be empty.'}
     ],
     img: [],
@@ -37,10 +37,14 @@ export class NewservicePage implements OnInit {
       { type: 'required', message: 'This field can\'t be empty.'},
       { type: 'nonnumeric', message: 'The price has to be numeric'}
     ],
+    maxPeople: [],
     location: [
       { type: 'required', message: 'This field can\'t be empty.'},
       { type: 'nonalphabeticChars', message: 'The sub-category can only contain alphabetic chars.'}
     ],
+    street: [],
+    city: [],
+    zip: [],
     description: [
       { type: 'required', message: 'This field can\'t be empty.'},
     ],
@@ -56,12 +60,16 @@ export class NewservicePage implements OnInit {
       category: ['', [Validators.required, alphabeticOnlyValidator]],
       subCategory: ['', []],
       userID: ['', []],
-      title: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       img: ['', []],
       price: ['', [Validators.required, numberValidator]],
+      maxPeople: ['', []],
       location: ['', [Validators.required, alphabeticOnlyValidator]],
+      street: ['', []],
+      city: ['', []],
+      zip: ['', []],
       description: ['', [Validators.required]],
-      rating: ['', [numberValidator]],
+      rating: ['', []],
     }, {});
   }
 
@@ -70,13 +78,17 @@ export class NewservicePage implements OnInit {
     const subCategory = this.serviceForm.get('subCategory').value;
     // ToDo: still not getting the ID even though json with correct user is given back
     const userID = this.creator.getUserID();
-    const title = this.serviceForm.get('title').value;
+    const name = this.serviceForm.get('name').value;
     const img = this.serviceForm.get('img').value;
     const price = this.serviceForm.get('price').value;
+    const maxPeople = this.serviceForm.get('maxPeople').value;
     const location = this.serviceForm.get('location').value;
+    const street = this.serviceForm.get('street').value;
+    const city = this.serviceForm.get('city').value;
+    const zip = this.serviceForm.get('zip').value;
     const description = this.serviceForm.get('description').value;
     const rating = this.serviceForm.get('rating').value;
-    this.creator.createNewService(category, subCategory, userID, title, img, price, location, description, rating).subscribe(() => {
+    this.creator.createNewService(category, subCategory, userID, name, img, price, maxPeople, location, street, city, zip, description, rating).subscribe(() => {
       this.router.navigate(['/home']);
     });
   }
@@ -86,7 +98,7 @@ export class NewservicePage implements OnInit {
   }
 
   printuserid() {
-    console.log(this.creator.getUserID());
+    return this.creator.getUserID();
   }
 
 }

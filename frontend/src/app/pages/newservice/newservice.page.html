@@ -8,12 +8,15 @@
   <form margin-bottom [formGroup]="serviceForm" (keydown.enter)="onSubmit(serviceForm.value)" (ngSubmit)="onSubmit(serviceForm.value)">
     <app-form-input [givenName]="'category'" [text]="'Category'" [validationMessages]="validationMessages.category" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'subCategory'" [text]="'Sub-category'" [validationMessages]="validationMessages.subCategory" [registerForm]="serviceForm"></app-form-input>
-    <app-form-input [givenName]="'title'" [text]="'Title'" [validationMessages]="validationMessages.title" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'name'" [text]="'Name'" [validationMessages]="validationMessages.name" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'img'" [text]="'Image Url'" [validationMessages]="validationMessages.img" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'price'" [text]="'Price'" [validationMessages]="validationMessages.price" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'maxPeople'" [text]="'Maximum of People'" [validationMessages]="validationMessages.maxPeople" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'location'" [text]="'Location'" [validationMessages]="validationMessages.location" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'street'" [text]="'Street'" [validationMessages]="validationMessages.street" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'city'" [text]="'City'" [validationMessages]="validationMessages.city" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'zip'" [text]="'Zip'" [validationMessages]="validationMessages.zip" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'description'" [text]="'Description'" [validationMessages]="validationMessages.description" [registerForm]="serviceForm"></app-form-input>
-    <app-form-input [givenName]="'rating'" [text]="'Rating'" [validationMessages]="validationMessages.rating" [registerForm]="serviceForm"></app-form-input>
 
     <ion-item *ngIf="errorMessage">
       <ion-text class="error-message" >{{ errorMessage }}</ion-text>
