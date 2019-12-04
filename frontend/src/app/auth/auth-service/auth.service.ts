@@ -2,15 +2,16 @@ import {Injectable} from '@angular/core';
 import {UserModel} from '../../models/user.model';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import decode from 'jwt-decode';
 
+// @ts-ignore
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
     currentUser: UserModel;
-    surpressPopover: boolean = false;
+    surpressPopover = false;
 
     constructor(private http: HttpClient, private router: Router) {
     }
@@ -37,7 +38,14 @@ export class AuthService {
     }
 
     register(lastname: string, firstname: string, email: string, username: string, password: string, role: string) {
-        return this.http.post<any>('http://localhost:3000/users/register', {lastname, firstname, email, username, password, role}, {observe: 'response'})
+        return this.http.post<any>('http://localhost:3000/users/register', {
+            lastname,
+            firstname,
+            email,
+            username,
+            password,
+            role
+        }, {observe: 'response'})
             .pipe(map(data => {
                 const userInformation = (data.body.userInformation);
                 const token = data.body.token;
@@ -52,11 +60,13 @@ export class AuthService {
     }
 
     generateUserFromJSON(data, token): UserModel {
-       return new UserModel(data._id, token, data.username, data.firstName, data.role);
+        return new UserModel(data._id, token, data.username, data.firstName, data.role);
     }
 
     isLoggedIn(): boolean {
-        if (!Boolean(localStorage.getItem('sessionToken'))) { return false; }
+        if (!Boolean(localStorage.getItem('sessionToken'))) {
+            return false;
+        }
         const dateNow: number = Math.floor(Date.now() / 1000);
         // tslint:disable-next-line:radix
         const expiration: number = parseInt(localStorage.getItem('expiration'));
@@ -73,7 +83,7 @@ export class AuthService {
 
     setPopoverDisplayed() {
         this.surpressPopover = true;
-      }
+    }
 
     removeItems() {
         localStorage.removeItem('sessionToken');
@@ -94,6 +104,7 @@ export class AuthService {
     }
 
     getUserInformation() {
+        // tslint:disable-next-line:max-line-length
         return this.http.post<any>('http://localhost:3000/users/profileInformation', {token: localStorage.getItem('sessionToken')}, {observe: 'response'});
     }
 
@@ -103,5 +114,9 @@ export class AuthService {
         return tokenPayload.payload.username;
     }
 
-
+    getUserID() {
+        const token = localStorage.getItem('sessionToken');
+        const tokenPayload = decode(token);
+        return tokenPayload.payload._id;
+    }
 }
