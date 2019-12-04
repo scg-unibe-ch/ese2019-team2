@@ -21,12 +21,12 @@ interface User {
 })
 export class CreateService {
 
-CurrentUserID = this.getUserID();
+    CurrentUserID = this.getUserID();
 
-constructor(private http: HttpClient, private auth: AuthService, private router: Router) {
+    constructor(private http: HttpClient, private auth: AuthService, private router: Router) {
     }
 
-    /*getUserID() {
+    getUserID() {
         const CurrentUserName = this.auth.getUsername();
         this.http.get<User>(`http://localhost:3000/users/${CurrentUserName}`)
             .subscribe(data => {
@@ -37,10 +37,10 @@ constructor(private http: HttpClient, private auth: AuthService, private router:
                     console.log('Error Occurred.');
                 });
         return this.CurrentUserID;
-    }*/
+    }
 
-  // tslint:disable-next-line:max-line-length
-createNewService(category: string, subCategory: string, userID: string, name: string, img: string, price: number, maxPeople: number, location: string, street: string, city: string, zip: number, description: string, rating: number) {
+    // tslint:disable-next-line:max-line-length
+    createNewService(category: string, subCategory: string, userID: string, name: string, img: string, price: number, maxPeople: number, location: string, street: string, city: string, zip: number, description: string, rating: number) {
         const service = {
             category,
             subCategory,
@@ -59,13 +59,7 @@ createNewService(category: string, subCategory: string, userID: string, name: st
         return this.http.post<any>('http://localhost:3000/services/add', service);
     }
 
-    getUserID() {
-        const token = localStorage.getItem('sessionToken');
-        const tokenPayload = decode(token);
-        return tokenPayload.payload._id;
-    }
-
-linktoNewService(category: string, subCategory: string, img: string) {
+    linktoNewService(category: string, subCategory: string, img: string) {
         this.router.navigate([`http://localhost:3000/services/details/${category}/${subCategory}/${img}`]);
     }
 }

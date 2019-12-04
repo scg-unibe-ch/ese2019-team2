@@ -114,9 +114,4 @@ export class AuthService {
         return tokenPayload.payload.username;
     }
 
-    getUserID() {
-        const token = localStorage.getItem('sessionToken');
-        const tokenPayload = decode(token);
-        return tokenPayload.payload._id;
-    }
 }
