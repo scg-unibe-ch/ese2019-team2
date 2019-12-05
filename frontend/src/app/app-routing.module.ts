@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'category/:categoryName', loadChildren: './pages/category/category.module#CategoryPageModule'},
   { path: 'category/:categoryName/:subCategory', loadChildren: './pages/category/category.module#CategoryPageModule'},
   { path: 'newservice', loadChildren: './pages/newservice/newservice.module#NewservicePageModule' },
-  { path: 'detail', loadChildren: './pages/detail/detail.module#DetailPageModule' }
+  { path: 'detail', loadChildren: './pages/detail/detail.module#DetailPageModule' },
+  { path: 'my-services', loadChildren: './pages/my-services/my-services.module#MyServicesPageModule' }
 ];
 
 @NgModule({

@@ -4,7 +4,8 @@ import {Router} from '@angular/router';
 import {SERVICES} from '../../mock-services';
 import {ServiceModel} from '../../models/service.model';
 import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {map} from 'rxjs/operators';
+import {RequestService} from '../request/request.service';
 
 interface Service {
   serviceName: string;
@@ -30,7 +31,7 @@ export class SearchService {
 
   services = null;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private request: RequestService, private http: HttpClient, private router: Router) { }
 
   searchServiceDetail() {
 
@@ -40,13 +41,9 @@ export class SearchService {
 
   }
 
-  getAsJson<T>(category: string): Observable<T> {
-    return this.http.get<T>(`http://localhost:3000/services/${category}`);
-  }
-
   getServicesByCategory(category: string) {
 
-    return this.getAsJson<Service>(category);
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/${category}`);
 
     /*this.http.get<Service>(`http://localhost:3000/services/${category}`)
         .subscribe(data => {

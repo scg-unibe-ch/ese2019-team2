@@ -15,6 +15,7 @@ import {CreateService} from '../../services/create/create.service';
 })
 export class NewservicePage implements OnInit {
 
+  idTemp = null;
   errorMessage = '';
   serviceForm: FormGroup;
   validationMessages = {
@@ -70,13 +71,14 @@ export class NewservicePage implements OnInit {
       description: ['', [Validators.required]],
       rating: ['', []],
     }, {});
+    // load Id in temp storage to write it to service on submit afterwards
+    this.loadUserID();
   }
 
   onSubmit(value: any) {
     const category = this.serviceForm.get('category').value;
     const subCategory = this.serviceForm.get('subCategory').value;
-    // ToDo: still not getting the ID even though json with correct user is given back
-    const userID = this.creator.getUserID();
+    const userID = this.idTemp;
     const serviceName = this.serviceForm.get('serviceName').value;
     const img = this.serviceForm.get('img').value;
     const price = this.serviceForm.get('price').value;
@@ -96,8 +98,11 @@ export class NewservicePage implements OnInit {
     return this.auth.canOpen('admin');
   }
 
-  printuserid() {
-    return this.creator.getUserID();
+  loadUserID() {
+    return this.creator.getUserID()
+        .subscribe(data => {
+          this.idTemp = data[0]._id;
+        });
   }
 
 }

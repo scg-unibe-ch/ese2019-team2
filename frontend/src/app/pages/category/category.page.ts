@@ -14,16 +14,16 @@ import {ServiceModel} from '../../models/service.model';
 })
 export class CategoryPage implements OnInit {
 
-    currenturl = null;
+    currentURL = null;
     services = null;
-    currentcategory = null;
+    currentCategory = null;
 
     constructor(private route: ActivatedRoute, private search: SearchService, private create: CreateService) {
     }
 
     ngOnInit() {
         this.getCategoryName();
-        this.search.getServicesByCategory(this.currentcategory)
+        this.search.getServicesByCategory(this.currentCategory)
             .subscribe(data => {
                 console.log(data);
                 this.services = data;
@@ -32,12 +32,12 @@ export class CategoryPage implements OnInit {
 
     getCategoryName() {
 
-        this.currenturl = document.URL;
+        this.currentURL = document.URL;
 
         for (let category of CATEGORIES)  {
-            if (this.currenturl.match(category.name)) {
-                this.currentcategory = category.name;
-                console.log(this.currentcategory);
+            if (this.currentURL.match(category.name)) {
+                this.currentCategory = category.name;
+                console.log(this.currentCategory);
             }
         }
 

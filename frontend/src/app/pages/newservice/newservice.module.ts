@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { NewservicePage } from './newservice.page';
 import { AuthModule} from '../../auth/auth.module';
+import {HeaderModule} from "../../common/header/header.module";
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         AuthModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HeaderModule
     ],
   declarations: [NewservicePage]
 })

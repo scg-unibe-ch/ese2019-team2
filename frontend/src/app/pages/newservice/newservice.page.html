@@ -1,8 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>New Service</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'New Service'">New Service</app-header>
 
 <ion-content>
   <form margin-bottom [formGroup]="serviceForm" (keydown.enter)="onSubmit(serviceForm.value)" (ngSubmit)="onSubmit(serviceForm.value)">

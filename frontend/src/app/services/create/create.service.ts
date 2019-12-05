@@ -4,6 +4,7 @@ import {UserModel} from '../../models/user.model';
 import {AuthService} from '../../auth/auth-service/auth.service';
 import {Router} from '@angular/router';
 import {decode} from 'jwt-decode';
+import {RequestService} from '../request/request.service';
 
 interface User {
     _id: string;
@@ -21,14 +22,18 @@ interface User {
 })
 export class CreateService {
 
-    CurrentUserID = this.getUserID();
+    CurrentUserID = null;
 
-    constructor(private http: HttpClient, private auth: AuthService, private router: Router) {
+    constructor(private request: RequestService, private http: HttpClient, private auth: AuthService, private router: Router) {
     }
 
     getUserID() {
+
         const CurrentUserName = this.auth.getUsername();
-        this.http.get<User>(`http://localhost:3000/users/${CurrentUserName}`)
+
+        return this.request.getAsJson<User>(`http://localhost:3000/users/${CurrentUserName}`);
+
+        /*this.http.get<User>(`http://localhost:3000/users/${CurrentUserName}`)
             .subscribe(data => {
                     this.CurrentUserID = data[0]._id;
                     return this.CurrentUserID;
@@ -36,11 +41,7 @@ export class CreateService {
                 error => {
                     console.log('Error Occurred.');
                 });
-        return this.CurrentUserID;
-    }
-
-    setCurrentUserID(userID: string) {
-        this.CurrentUserID = userID;
+        return this.CurrentUserID;*/
     }
 
     // tslint:disable-next-line:max-line-length
