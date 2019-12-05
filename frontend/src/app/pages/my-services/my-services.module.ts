@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MyServicesPage } from './my-services.page';
+import {HeaderModule} from "../../common/header/header.module";
+import {PreviewCardModule} from "../../common/preview-card/preview-card.module";
 
 const routes: Routes = [
   {
@@ -15,12 +17,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        HeaderModule,
+        PreviewCardModule
+    ],
   declarations: [MyServicesPage]
 })
 export class MyServicesPageModule {}

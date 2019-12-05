@@ -14,11 +14,13 @@ import { RoleGuardService } from './auth/auth-guard-service/roleguard.service';
 import { CommonModule} from '@angular/common';
 import {SearchService} from './services/search/search.service';
 import {CreateService} from './services/create/create.service';
+import {MenuModule} from './common/menu/menu.module';
+import {HeaderModule} from './common/header/header.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, HeaderModule, MenuModule],
   providers: [
     StatusBar,
     SplashScreen,

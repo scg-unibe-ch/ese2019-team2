@@ -16,4 +16,4 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [ MenuComponent ]
 })
-export class HeaderModule { }
+export class MenuModule { }

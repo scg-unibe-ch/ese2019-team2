@@ -7,6 +7,8 @@ import { ViewController } from '@ionic/core';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { isUndefined } from 'util';
+import {CreateService} from '../../../services/create/create.service';
+import {StorageService} from '../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-login-form',
@@ -27,7 +29,14 @@ export class LoginFormComponent implements OnInit {
       { type: 'nonalphabeticChars', message: 'The name can only contain alphabetic chars.'}
     ]
   };
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
+  constructor(
+      private formBuilder: FormBuilder,
+      private auth: AuthService,
+      private popCtrl: PopoverController,
+      private router: Router,
+      private creator: CreateService,
+      private storage: StorageService
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -46,15 +55,13 @@ export class LoginFormComponent implements OnInit {
           this.popCtrl.getTop().then(overlay => {
            if (!isUndefined(overlay)) {
              this.popCtrl.dismiss();
-           };
+           }
          });
           this.router.navigate(['/']);
         }, error => {
           this.showWrongCredentials = true;
-          this.loginForm.get('password').reset(); 
+          this.loginForm.get('password').reset();
           console.log(error);
         });
   }
-
-  
 }

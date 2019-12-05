@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AuthService } from './auth/auth-service/auth.service';
+import {AuthService} from "./auth/auth-service/auth.service";
+import {CreateService} from "./services/create/create.service";
+import {StorageService} from "./services/storage/storage.service";
 
 @Component({
   selector: 'app-root',
@@ -11,19 +9,15 @@ import { AuthService } from './auth/auth-service/auth.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private auth: AuthService
-  ) {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+  constructor(private auth: AuthService, private creator: CreateService, private storage: StorageService) {
+    if (this.auth.isLoggedIn()) {
+      this.creator.getUserID()
+          .subscribe(data => {
+            this.storage.idTemp = data[0]._id;
+          }, err => {
+            return null;
+          });
+    }
+    console.log(this.storage.idTemp);
   }
 }

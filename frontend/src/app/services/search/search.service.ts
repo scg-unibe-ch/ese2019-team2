@@ -41,9 +41,15 @@ export class SearchService {
 
   }
 
+  getServicesByUser(userID: string) {
+
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/user/${userID}`);
+
+  }
+
   getServicesByCategory(category: string) {
 
-    return this.request.getAsJson<Service>(`http://localhost:3000/services/${category}`);
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/category/${category}`);
 
     /*this.http.get<Service>(`http://localhost:3000/services/${category}`)
         .subscribe(data => {
