@@ -1,15 +1,16 @@
 export class ServiceModel {
-    id: number;
-    img: string;
-    name: string;
+    serviceName: string;
     category: string;
+    subCategory: string;
+    userID: string;
+    img: string;
     location: string;
-    price: string;
-    maxPeople: string;
+    price: number;
+    maxPeople: number;
     description: string;
     street: string;
     city: string;
     zip: string;
-    email: string;
     phone: string;
+    rating: number;
 }

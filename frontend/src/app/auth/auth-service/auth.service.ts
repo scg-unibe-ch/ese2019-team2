@@ -60,7 +60,7 @@ export class AuthService {
     }
 
     generateUserFromJSON(data, token): UserModel {
-        return new UserModel(data._id, token, data.username, data.firstName, data.role);
+        return new UserModel(data._id, token, data.username, data.lastName, data.firstName, data.role);
     }
 
     isLoggedIn(): boolean {

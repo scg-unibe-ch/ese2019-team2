@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SERVICES} from '../../mock-services';
 import {SearchService} from '../../services/search/search.service';
-import {forEach} from "@angular-devkit/schematics";
-import {CreateService} from "../../services/create/create.service";
+import {forEach} from '@angular-devkit/schematics';
+import {CreateService} from '../../services/create/create.service';
+import {CATEGORIES} from '../../categories';
+import {ServiceModel} from '../../models/service.model';
 
 @Component({
     selector: 'app-category',
@@ -12,33 +14,29 @@ import {CreateService} from "../../services/create/create.service";
 })
 export class CategoryPage implements OnInit {
 
-    currenturl;
-    services = SERVICES;
-    currentcategory;
+    currenturl = null;
+    services = null;
+    currentcategory = null;
 
     constructor(private route: ActivatedRoute, private search: SearchService, private create: CreateService) {
     }
 
-    ionViewWillEnter() {
-        this.getCategoryName();
-        this.services = this.search.getServicesByCategory(this.currentcategory);
-        console.log(this.search.getServicesByCategory(this.currentcategory));
-        console.log(this.create.getUserID());
-    }
-
     ngOnInit() {
-        /*this.getCategoryName();
-        this.services = this.search.getServicesByCategory(this.currentcategory);
-        console.log(this.search.getServicesByCategory(this.currentcategory));*/
+        this.getCategoryName();
+        this.search.getServicesByCategory(this.currentcategory)
+            .subscribe(data => {
+                console.log(data);
+                this.services = data;
+            });
     }
 
     getCategoryName() {
 
         this.currenturl = document.URL;
 
-        for (let s of SERVICES)  {
-            if (this.currenturl.match(s.category)) {
-                this.currentcategory = s.category;
+        for (let category of CATEGORIES)  {
+            if (this.currenturl.match(category.name)) {
+                this.currentcategory = category.name;
                 console.log(this.currentcategory);
             }
         }

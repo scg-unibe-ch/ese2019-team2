@@ -14,7 +14,7 @@ let ServiceSchema = new Schema({
     userID: {
         type: String
     },
-    title: {
+    serviceName: {
         type: String
     },
     img: {
@@ -24,6 +24,24 @@ let ServiceSchema = new Schema({
         type: Number
     },
     description: {
+        type: String
+    },
+    location: {
+        type: String
+    },
+    maxPeople: {
+        type: Number
+    },
+    street: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    zip: {
+        type: String
+    },
+    phone: {
         type: String
     },
     rating: {

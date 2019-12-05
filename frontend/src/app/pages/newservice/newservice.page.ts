@@ -29,7 +29,7 @@ export class NewservicePage implements OnInit {
     userID: [
       { type: 'required'},
     ],
-    name: [
+    serviceName: [
       { type: 'required', message: 'This field can\'t be empty.'}
     ],
     img: [],
@@ -40,7 +40,6 @@ export class NewservicePage implements OnInit {
     maxPeople: [],
     location: [
       { type: 'required', message: 'This field can\'t be empty.'},
-      { type: 'nonalphabeticChars', message: 'The sub-category can only contain alphabetic chars.'}
     ],
     street: [],
     city: [],
@@ -60,7 +59,7 @@ export class NewservicePage implements OnInit {
       category: ['', [Validators.required, alphabeticOnlyValidator]],
       subCategory: ['', []],
       userID: ['', []],
-      name: ['', [Validators.required]],
+      serviceName: ['', [Validators.required]],
       img: ['', []],
       price: ['', [Validators.required, numberValidator]],
       maxPeople: ['', []],
@@ -78,7 +77,7 @@ export class NewservicePage implements OnInit {
     const subCategory = this.serviceForm.get('subCategory').value;
     // ToDo: still not getting the ID even though json with correct user is given back
     const userID = this.creator.getUserID();
-    const name = this.serviceForm.get('name').value;
+    const serviceName = this.serviceForm.get('serviceName').value;
     const img = this.serviceForm.get('img').value;
     const price = this.serviceForm.get('price').value;
     const maxPeople = this.serviceForm.get('maxPeople').value;
@@ -88,7 +87,7 @@ export class NewservicePage implements OnInit {
     const zip = this.serviceForm.get('zip').value;
     const description = this.serviceForm.get('description').value;
     const rating = this.serviceForm.get('rating').value;
-    this.creator.createNewService(category, subCategory, userID, name, img, price, maxPeople, location, street, city, zip, description, rating).subscribe(() => {
+    this.creator.createNewService(category, subCategory, userID, serviceName, img, price, maxPeople, location, street, city, zip, description, rating).subscribe(() => {
       this.router.navigate(['/home']);
     });
   }
