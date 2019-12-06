@@ -14,6 +14,9 @@ let ServiceSchema = new Schema({
     userID: {
         type: String
     },
+    username: {
+        type: String
+    },
     serviceName: {
         type: String
     },

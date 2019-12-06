@@ -41,9 +41,15 @@ export class SearchService {
 
   }
 
-  getServicesByUser(userID: string) {
+  getServicesByUserID(userID: string) {
 
     return this.request.getAsJson<Service>(`http://localhost:3000/services/user/${userID}`);
+
+  }
+
+  getServicesByUsername(username: string) {
+
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/user/${username}`);
 
   }
 

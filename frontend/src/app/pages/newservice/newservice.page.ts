@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { alphabeticOnlyValidator, numberValidator } from '../../CustomValidator';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../auth/auth-service/auth.service';
-import {isUndefined} from "util";
-import {PopoverController} from "@ionic/angular";
-import {Router} from "@angular/router";
-import {first} from "rxjs/operators";
+import {PopoverController} from '@ionic/angular';
+import {Router} from '@angular/router';
 import {CreateService} from '../../services/create/create.service';
 
 @Component({
@@ -28,7 +26,10 @@ export class NewservicePage implements OnInit {
       { type: 'nonalphabeticChars', message: 'The sub-category can only contain alphabetic chars.'}
     ],
     userID: [
-      { type: 'required'},
+      { type: 'required'}
+    ],
+    username: [
+      { type: 'required'}
     ],
     serviceName: [
       { type: 'required', message: 'This field can\'t be empty.'}
@@ -40,13 +41,13 @@ export class NewservicePage implements OnInit {
     ],
     maxPeople: [],
     location: [
-      { type: 'required', message: 'This field can\'t be empty.'},
+      { type: 'required', message: 'This field can\'t be empty.'}
     ],
     street: [],
     city: [],
     zip: [],
     description: [
-      { type: 'required', message: 'This field can\'t be empty.'},
+      { type: 'required', message: 'This field can\'t be empty.'}
     ],
     rating: [
       { type: 'nonnumeric', message: 'The rating has to be numeric'}
@@ -60,6 +61,7 @@ export class NewservicePage implements OnInit {
       category: ['', [Validators.required, alphabeticOnlyValidator]],
       subCategory: ['', []],
       userID: ['', []],
+      username: ['', []],
       serviceName: ['', [Validators.required]],
       img: ['', []],
       price: ['', [Validators.required, numberValidator]],
@@ -79,6 +81,7 @@ export class NewservicePage implements OnInit {
     const category = this.serviceForm.get('category').value;
     const subCategory = this.serviceForm.get('subCategory').value;
     const userID = this.idTemp;
+    const username = this.auth.getUsername();
     const serviceName = this.serviceForm.get('serviceName').value;
     const img = this.serviceForm.get('img').value;
     const price = this.serviceForm.get('price').value;
@@ -89,9 +92,10 @@ export class NewservicePage implements OnInit {
     const zip = this.serviceForm.get('zip').value;
     const description = this.serviceForm.get('description').value;
     const rating = this.serviceForm.get('rating').value;
-    this.creator.createNewService(category, subCategory, userID, serviceName, img, price, maxPeople, location, street, city, zip, description, rating).subscribe(() => {
-      this.router.navigate(['/home']);
-    });
+    this.creator.createNewService(category, subCategory, userID, username, serviceName, img, price, maxPeople, location, street, city, zip, description, rating)
+        .subscribe(() => {
+          this.router.navigate(['/home']);
+        });
   }
 
   canCreateService() {

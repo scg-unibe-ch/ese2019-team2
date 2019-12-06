@@ -10,7 +10,7 @@ import {StorageService} from "./services/storage/storage.service";
 })
 export class AppComponent {
   constructor(private auth: AuthService, private creator: CreateService, private storage: StorageService) {
-    if (this.auth.isLoggedIn()) {
+    /*if (this.auth.isLoggedIn()) {
       this.creator.getUserID()
           .subscribe(data => {
             this.storage.idTemp = data[0]._id;
@@ -18,6 +18,6 @@ export class AppComponent {
             return null;
           });
     }
-    console.log(this.storage.idTemp);
+    console.log(this.storage.idTemp);*/
   }
 }

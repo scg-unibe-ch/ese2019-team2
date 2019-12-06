@@ -3,6 +3,7 @@ export class ServiceModel {
     category: string;
     subCategory: string;
     userID: string;
+    username: string;
     img: string;
     location: string;
     price: number;

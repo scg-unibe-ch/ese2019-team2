@@ -33,7 +33,12 @@ export class CategoryPage implements OnInit {
     getCategoryName() {
 
         this.currentURL = document.URL;
-        this.currentCategory = this.currentURL.toString().replace('http://localhost:8100/category/', '');
+
+        let splitString = [];
+        splitString = this.currentURL.toString().split('category/');
+
+        this.currentCategory = splitString[splitString.length - 1];
+        console.log(this.currentCategory);
 
         /*for (let category of CATEGORIES)  {
             if (this.currentURL.match(category.name)) {

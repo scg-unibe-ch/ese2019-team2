@@ -13,8 +13,8 @@ router.get('/category/:category', async (req: Request, res: Response) => {
     });
 });
 
-router.get('/user/:userID', async (req: Request, res: Response) => {
-    Service.find({userID: req.params.userID}, (err: any, services: any) => {
+router.get('/user/:username', async (req: Request, res: Response) => {
+    Service.find({username: req.params.username}, (err: any, services: any) => {
         if (err) {
             console.log(err);
             return res.status(418).json({error: err});
