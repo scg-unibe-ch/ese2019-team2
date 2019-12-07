@@ -1,15 +1,12 @@
+
 <app-header title="Home"></app-header>
+
 <ion-content>
-    <ion-row class="searchbar">
-        <ion-searchbar></ion-searchbar>
-    </ion-row>
-    <!--<ion-item-divider class="container">-->
-    <ion-row class="title">
-        <ion-col size-md_="12">
-            <ion-title><h1>Categories</h1></ion-title>
-        </ion-col>
-    </ion-row>
-    <!--</ion-item-divider>-->
+
+    <app-searchbar></app-searchbar>
+
+    <app-separating-headline [title]="'Categories'"></app-separating-headline>
+
     <ion-grid>
         <ion-row class="category-previews">
             <ion-col *ngFor="let category of categories" size="12" size-sm="6" size-md="3" class="categories">

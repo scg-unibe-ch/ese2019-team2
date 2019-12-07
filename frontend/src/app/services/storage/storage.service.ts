@@ -8,6 +8,7 @@ import {error} from 'util';
 export class StorageService {
 
   idTemp = null;
+  services = null;
 
   constructor(private creator: CreateService) {
     //this.loadUserID();
@@ -21,5 +22,9 @@ export class StorageService {
         err => {
           return null;
         });
+  }
+
+  setServices(services) {
+      this.services = services;
   }
 }

@@ -16,11 +16,23 @@ import {SearchService} from './services/search/search.service';
 import {CreateService} from './services/create/create.service';
 import {MenuModule} from './common/menu/menu.module';
 import {HeaderModule} from './common/header/header.module';
+import {SearchbarModule} from './common/searchbar/searchbar.module';
+import {SeparatingHeadlineModule} from './common/separating-headline/separating-headline.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, HeaderModule, MenuModule],
+    imports: [
+      BrowserModule,
+      IonicModule.forRoot(),
+      AppRoutingModule,
+      HttpClientModule,
+      CommonModule,
+      HeaderModule,
+      MenuModule,
+      SearchbarModule,
+      SeparatingHeadlineModule
+    ],
   providers: [
     StatusBar,
     SplashScreen,

@@ -13,7 +13,7 @@ export class HomePage {
 
   categories = CATEGORIES;
 
-  constructor(private auth: AuthService, private creator: CreateService, private storage: StorageService) {
+  constructor() {
 
   }
 

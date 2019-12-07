@@ -37,8 +37,8 @@ export class SearchService {
 
   }
 
-  searchServicesby(searchparam: string) {
-
+  searchServicesby(searchCriterion: string, searchString: string) {
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/search/${searchCriterion}/${searchString}`);
   }
 
   getServicesByUserID(userID: string) {

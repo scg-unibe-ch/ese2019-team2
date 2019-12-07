@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
       private splashScreen: SplashScreen,
       private statusBar: StatusBar,
       private auth: AuthService,
-      private creator: CreateService,
   ) { }
 
   ngOnInit() {

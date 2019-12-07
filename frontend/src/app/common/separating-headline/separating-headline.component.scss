@@ -1,0 +1,22 @@
+.divider {
+  border-bottom: solid transparent 2px;
+  border-top: solid transparent 2px;
+  border-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(50%, #252525), color-stop(100%,#ffffff));
+  border-image-slice: 1;
+  margin-top: 10px;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+ion-title{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 150%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}

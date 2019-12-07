@@ -1,0 +1,23 @@
+<ion-grid>
+  <ion-row class="searchbar">
+    <ion-col class="search">
+      <ion-searchbar (ionInput)="onSubmit($event.target.value)" (ionClear)="clean()" (ionCancel)="clean()"></ion-searchbar>
+    </ion-col>
+
+    <ion-col class="searchCriterion">
+      <ion-select placeholder="search in..." class="dropdown" [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)">
+        <ion-select-option *ngFor="let searchCriterion of searchCriteria" value="{{searchCriterion.value}}" selected="all criteria">{{searchCriterion.text}}</ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ng-container *ngIf="this.services !== null">
+    <app-separating-headline [title]="'Your matches:'"></app-separating-headline>
+
+
+    <ion-row class="service-previews-search">
+      <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
+        <app-preview-card [title]=service.serviceName></app-preview-card>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+</ion-grid>
