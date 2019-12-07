@@ -10,14 +10,20 @@
       </ion-select>
     </ion-col>
   </ion-row>
-  <ng-container *ngIf="this.services !== null">
+
+  <div *ngIf="this.services !== null">
     <app-separating-headline [title]="'Your matches:'"></app-separating-headline>
 
+    <ion-row *ngIf="this.services.length === 0">
+      <div class="spinner">
+        <ion-spinner name="dots"></ion-spinner>
+      </div>
+    </ion-row>
 
     <ion-row class="service-previews-search">
       <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
         <app-preview-card [title]=service.serviceName></app-preview-card>
       </ion-col>
     </ion-row>
-  </ng-container>
+  </div>
 </ion-grid>
