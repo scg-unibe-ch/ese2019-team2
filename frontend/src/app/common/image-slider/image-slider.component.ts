@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ViewChild} from '@angular/core';
 import {IonSlides} from '@ionic/angular';
 
@@ -9,6 +9,7 @@ import {IonSlides} from '@ionic/angular';
 })
 export class ImageSliderComponent {
 
+    @Input() detailImgs: string[];
     @ViewChild(IonSlides, {static: true}) ionSlides: IonSlides;
 
     slideOpts = {

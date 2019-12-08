@@ -12,6 +12,7 @@ import {ContactInformationModule} from '../../common/contact-information/contact
 import {ImageSliderModule} from '../../common/image-slider/image-slider.module';
 import {EssentialModule} from '../../common/essential/essential.module';
 import {DescriptionModule} from '../../common/description/description.module';
+import {SeparatingHeadlineModule} from "../../common/separating-headline/separating-headline.module";
 
 const routes: Routes = [
     {
@@ -30,7 +31,8 @@ const routes: Routes = [
         ContactInformationModule,
         ImageSliderModule,
         EssentialModule,
-        DescriptionModule
+        DescriptionModule,
+        SeparatingHeadlineModule
     ],
     declarations: [DetailPage]
 })

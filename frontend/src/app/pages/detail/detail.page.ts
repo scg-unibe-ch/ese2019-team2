@@ -12,6 +12,7 @@ export class DetailPage implements OnInit, OnDestroy {
   service = null;
   currentURL = null;
   currentServiceID = null;
+  title = null;
 
   constructor(private search: SearchService) { }
 
@@ -21,7 +22,8 @@ export class DetailPage implements OnInit, OnDestroy {
         .subscribe(data => {
           console.log(data);
           this.service = data;
-        });
+       });
+
   }
 
   ngOnDestroy(): void {

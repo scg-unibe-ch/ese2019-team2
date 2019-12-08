@@ -1,17 +1,7 @@
 <ion-slides #ionSlides>
-    <button type="submit" float-right class="btnNext" (click)="slideNext()"><ion-icon name="arrow-forward"></ion-icon> </button>
-    <ion-slide>
-        <ion-img src="../../../assets/catering1.jpg"></ion-img>
+    <ion-slide *ngFor="let detailImg of detailImgs">
+        <button type="submit" float-right class="btnNext" (click)="slidePrev()"><ion-icon name="arrow-back"></ion-icon> </button>
+        <ion-img [src]="detailImg"></ion-img>
+        <button type="submit" float-left class="btnPrev" (click)="slideNext()"><ion-icon name="arrow-forward"></ion-icon></button>
     </ion-slide>
-    <button type="submit" float-left class="btnPrev" (click)="slidePrev()"><ion-icon name="arrow-back"></ion-icon></button>
-    <button type="submit" float-right class="btnNext" (click)="slideNext()"><ion-icon name="arrow-forward"></ion-icon> </button>
-    <ion-slide>
-        <ion-img src="../../../assets/catering2.jpg"></ion-img>
-    </ion-slide>
-    <button type="submit" float-left class="btnPrev" (click)="slidePrev()"><ion-icon name="arrow-back"></ion-icon></button>
-    <button type="submit" float-right class="btnNext" (click)="slideNext()"><ion-icon name="arrow-forward"></ion-icon> </button>
-    <ion-slide>
-        <h1>Slide3</h1>
-    </ion-slide>
-    <button type="submit" float-left class="btnPrev" (click)="slidePrev()"><ion-icon name="arrow-back"></ion-icon></button>
 </ion-slides>
