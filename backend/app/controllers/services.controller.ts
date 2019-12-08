@@ -75,41 +75,19 @@ router.get('/search/:searchField/:searchInput', async (req: Request, res: Respon
             });
             break;
         case 'description':
-            /*let searchString = req.params.searchInput.toString();
-            searchString = `searchString\*`;*/
-            Service.find({description: req.params.searchInput}, (err: any, services: any) => {
+            Service.find({$text: { $search: req.params.searchInput}}, { score: { $meta: 'textScore' } }, (err: any, services: any) => {
                 if (err) {
                     console.log(err);
                     return res.status(418).json({error: err});
                 }
                 return res.status(200).json(services);
-            });
-            break;
+            }).sort({ score: { $meta: 'textScore' } });
     }
-
-/*
-    if (searchField === 'username') {
-        Service.find({ username: req.params.searchInput}, (err: any, services: any) => {
-            if (err) {
-                console.log(err);
-                return res.status(418).json({error: err});
-            }
-            return res.status(200).json(services);
-        });
-    }
-    Service.find({ username: req.params.searchInput}, (err: any, services: any) => {
-        if (err) {
-            console.log(err);
-            return res.status(418).json({error: err});
-        }
-        return res.status(200).json(services);
-    });*/
-
 });
 
 // request specific service (for details page)
-router.get('/details/:username/:serviceName', async (req: Request, res: Response) => {
-    Service.find({username: req.params.username, serviceName: req.params.serviceName}, (err: any, service: any) => {
+router.get('/detail/:_id', async (req: Request, res: Response) => {
+    Service.find({_id: req.params._id}, (err: any, service: any) => {
         if (err) {
             console.log(err);
             return res.status(418).json({error: err});

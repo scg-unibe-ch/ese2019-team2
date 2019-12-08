@@ -33,8 +33,8 @@ export class SearchService {
 
   constructor(private request: RequestService, private http: HttpClient, private router: Router) { }
 
-  searchServiceDetail() {
-
+  getServiceDetail(serviceID: string) {
+    return this.request.getAsJson<Service>(`http://localhost:3000/services/detail/${serviceID}`);
   }
 
   searchServicesby(searchCriterion: string, searchString: string) {

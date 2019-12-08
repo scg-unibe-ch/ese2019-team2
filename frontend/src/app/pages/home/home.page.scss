@@ -7,28 +7,10 @@
   align-self: center;
 }
 
-.container1{
-  margin-bottom:10px;
-  margin-top: 20px;
-  text-align: center;
-  border-image: linear-gradient(to left, black, transparent 50% );
-  border-image-slice: 1;
-  border-bottom: solid transparent;
-  border-bottom-width: 5px;
-  //border-bottom-color: lightgray;
-  border-top: solid transparent;
-  border-top-width: 5px;
-  //border-top-color: lightgray;
-}
-
 .category-previews {
   margin-top: 10px;
   margin-bottom: 50px;
   alignment: center;
-}
-
-ion-item-divider{
-  text-align: center;
 }
 
 app-preview-card {

@@ -8,10 +8,8 @@ import { ServicesController } from './controllers';
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://saegi95:saegi95@esedatabaseteam2-bvhax.mongodb.net/ESEdatabaseTeam2?retryWrites=true&w=majority');
-//mongoose.connect('mongodb://localhost:27017/users');
-// !!! does not work like that... always using services db
-//mongoose.connect('mongodb://localhost:27017/services');
 const connection = mongoose.connection;
+
 // create a new express application instance
 const app: express.Application = express();
 app.use(express.json());

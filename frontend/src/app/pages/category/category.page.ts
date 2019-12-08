@@ -34,8 +34,8 @@ export class CategoryPage implements OnInit {
 
         this.currentURL = document.URL;
 
-        let splitString = [];
-        splitString = this.currentURL.toString().split('category/');
+        let splitString: any[];
+        splitString = this.currentURL.toString().split('/');
 
         this.currentCategory = splitString[splitString.length - 1];
         console.log(this.currentCategory);

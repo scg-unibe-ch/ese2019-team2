@@ -11,7 +11,6 @@ import {StorageService} from "../../services/storage/storage.service";
 export class SearchbarComponent implements OnInit, OnDestroy {
 
   searchCriteria = [
-    {value: 'allCriteria', text: 'all criteria'},
     {value: 'username', text: 'Username'},
     {value: 'serviceName', text: 'Service names'},
     {value: 'category', text: 'Categories'},
@@ -23,33 +22,28 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   selection = null;
   services = null;
   searchString = null;
+  message = null;
 
   constructor(
       private search: SearchService,
-      private router: Router,
-      private store: StorageService
+      private router: Router
   ) { }
 
   ngOnInit() {
-
+    this.onDropdownChange('username');
   }
 
   onSubmit(searchString: string) {
     this.searchString = searchString;
     if (searchString !== '') {
-      if (this.dropdownVal === 'allCriteria' || this.dropdownVal === null) {
-        // full text search -> mongodb
-
-      } else {
-        // selective search -> services controller
-        console.log(this.dropdownVal);
-        this.search.searchServicesby(this.dropdownVal, searchString)
-            .subscribe(data => {
-              console.log(data);
-              this.services = data;
-              //this.router.navigate(['/search']);
-            });
-      }
+      // selective search -> services controller
+      console.log(this.dropdownVal);
+      this.search.searchServicesby(this.dropdownVal, searchString)
+          .subscribe(data => {
+            console.log(data);
+            this.services = data;
+            //this.router.navigate(['/search']);
+          });
     }
   }
 

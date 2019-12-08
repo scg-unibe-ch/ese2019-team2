@@ -2,9 +2,10 @@ ion-card {
   transition: transform .2s ease-out;
   margin: 0px;
   min-width: 100px;
-  min-height: 100px;
+  //min-height: 100px;
   max-width: 450px;
-  max-height: 350px;
+  //max-height: 350px;
+  height: 200px;
   align-self: center;
 }
 
@@ -12,10 +13,10 @@ ion-card:hover {
   box-shadow: 5px 5px 5px 5px rgba(0,0,0, 0.5);
   transform: scale(1.5);
   //transform-origin: 5% 75%;
-  filter: blur(2px);
+  z-index: 2;
 }
 
 ion-card-content:hover {
   background-color: rgba(0, 0, 0, 0.5);
-
+  filter: blur(2px);
 }

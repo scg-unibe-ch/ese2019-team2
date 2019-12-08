@@ -19,7 +19,7 @@
 }
 
 .service-previews-search {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 50px;
   alignment: center;
 }
@@ -27,9 +27,17 @@
 .spinner {
   margin-right: 50%;
   margin-left: 50%;
-  margin-top: 8%;
+  margin-top: 70px;
+}
+
+.matches {
+  padding-top: 5px;
 }
 
 ion-row {
   position: center;
+}
+
+app-separating-headline {
+  padding-top: 20px;
 }
