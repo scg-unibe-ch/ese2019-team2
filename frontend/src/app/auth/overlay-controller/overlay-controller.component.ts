@@ -15,7 +15,7 @@ export class OverlayControllerComponent implements OnInit {
   ngOnInit() {
     this.presentOverlay(undefined);
   }
-  async presentOverlay(ev: any){
+  async presentOverlay(ev: any) {
     const overlay = await this.popoverController.create({
       component: OverlayContentComponent,
       cssClass: 'overlay',

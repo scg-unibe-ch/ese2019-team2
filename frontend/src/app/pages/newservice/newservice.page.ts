@@ -54,7 +54,14 @@ export class NewservicePage implements OnInit {
     ]
   };
 
-  constructor(private creator: CreateService, private formBuilder: FormBuilder, private auth: AuthService, private popCtrl: PopoverController, private router: Router) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(
+      private creator: CreateService,
+      private formBuilder: FormBuilder,
+      private auth: AuthService,
+      private popCtrl: PopoverController,
+      private router: Router
+  ) { }
 
   ngOnInit() {
     this.serviceForm = this.formBuilder.group({
@@ -92,7 +99,24 @@ export class NewservicePage implements OnInit {
     const zip = this.serviceForm.get('zip').value;
     const description = this.serviceForm.get('description').value;
     const rating = this.serviceForm.get('rating').value;
-    this.creator.createNewService(category, subCategory, userID, username, serviceName, img, price, maxPeople, location, street, city, zip, description, rating)
+
+    // tslint:disable-next-line:max-line-length
+    this.creator.createNewService(
+        category,
+        subCategory,
+        userID,
+        username,
+        serviceName,
+        img,
+        price,
+        maxPeople,
+        location,
+        street,
+        city,
+        zip,
+        description,
+        rating
+    )
         .subscribe(() => {
           this.router.navigate(['/home']);
         });

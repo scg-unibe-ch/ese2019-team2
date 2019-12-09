@@ -16,14 +16,14 @@ export class ImageSliderComponent {
         initialSlide: 1,
         speed: 400
     };
+
+    constructor() { }
+
     slidePrev() {
         this.ionSlides.slidePrev();
     }
 
     slideNext() {
         this.ionSlides.slideNext();
-    }
-
-    constructor() {
     }
 }

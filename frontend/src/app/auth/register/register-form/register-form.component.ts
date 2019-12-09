@@ -72,7 +72,7 @@ export class RegisterFormComponent implements OnInit {
               this.popCtrl.dismiss();
             }
           });
-            this.router.navigate(['/profile']);
+          this.router.navigate(['/profile']);
         }, err => {
           this.errorMessage = err.error.error;
           this.registerForm.get('password').reset();

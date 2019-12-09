@@ -11,8 +11,7 @@ export class ProfilePage implements OnInit {
 
     data = [];
 
-    constructor(private auth: AuthService) {
-    }
+    constructor(private auth: AuthService) { }
 
     ionViewDidEnter() {
         this.makeRequest();

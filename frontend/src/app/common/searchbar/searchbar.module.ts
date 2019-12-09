@@ -4,9 +4,9 @@ import {SearchbarComponent} from './searchbar.component';
 import {AuthModule} from '../../auth/auth.module';
 import {IonicModule} from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from "@angular/forms";
-import {PreviewCardModule} from "../preview-card/preview-card.module";
-import {SeparatingHeadlineModule} from "../separating-headline/separating-headline.module";
+import {FormsModule} from '@angular/forms';
+import {PreviewCardModule} from '../preview-card/preview-card.module';
+import {SeparatingHeadlineModule} from '../separating-headline/separating-headline.module';
 
 
 @NgModule({

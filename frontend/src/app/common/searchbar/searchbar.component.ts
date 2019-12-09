@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SearchService} from "../../services/search/search.service";
-import {Router} from "@angular/router";
-import {StorageService} from "../../services/storage/storage.service";
+import {SearchService} from '../../services/search/search.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -42,7 +41,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
           .subscribe(data => {
             console.log(data);
             this.services = data;
-            //this.router.navigate(['/search']);
+            // this.router.navigate(['/search']);
           });
     }
   }

@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./form-input.component.scss'],
 })
 export class FormInputComponent implements OnInit {
+
   @Input('validationMessages') validationMessages: any;
   @Input('registerForm') registerForm: FormGroup;
   @Input() givenName: string;
@@ -21,13 +22,12 @@ export class FormInputComponent implements OnInit {
     return !this.isShowingPw;
   }
 
-  constructor() {
-   }
+  constructor() { }
 
-   ngOnInit() {
+  ngOnInit() {
     this.isPassword = this.type === 'password';
     this.isRole = this.type === 'role';
-   }
+  }
 
 
   inputChange(evt: any) {

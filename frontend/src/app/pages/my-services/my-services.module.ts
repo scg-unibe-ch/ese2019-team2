@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MyServicesPage } from './my-services.page';
-import {HeaderModule} from "../../common/header/header.module";
-import {PreviewCardModule} from "../../common/preview-card/preview-card.module";
+import {HeaderModule} from '../../common/header/header.module';
+import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
 
 const routes: Routes = [
   {

@@ -11,13 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth-service/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RoleGuardService } from './auth/auth-guard-service/roleguard.service';
-import { CommonModule} from '@angular/common';
-import {SearchService} from './services/search/search.service';
-import {CreateService} from './services/create/create.service';
-import {MenuModule} from './common/menu/menu.module';
-import {HeaderModule} from './common/header/header.module';
-import {SearchbarModule} from './common/searchbar/searchbar.module';
-import {SeparatingHeadlineModule} from './common/separating-headline/separating-headline.module';
+import { CommonModule } from '@angular/common';
+import { SearchService } from './services/search/search.service';
+import { CreateService } from './services/create/create.service';
+import { MenuModule } from './common/menu/menu.module';
+import { HeaderModule } from './common/header/header.module';
+import { SearchbarModule } from './common/searchbar/searchbar.module';
+import { SeparatingHeadlineModule } from './common/separating-headline/separating-headline.module';
+import { FooterModule } from './common/footer/footer.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,8 @@ import {SeparatingHeadlineModule} from './common/separating-headline/separating-
       HeaderModule,
       MenuModule,
       SearchbarModule,
-      SeparatingHeadlineModule
+      SeparatingHeadlineModule,
+      FooterModule
     ],
   providers: [
     StatusBar,

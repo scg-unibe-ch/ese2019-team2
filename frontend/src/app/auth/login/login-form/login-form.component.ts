@@ -18,7 +18,7 @@ import {StorageService} from '../../../services/storage/storage.service';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
-  showWrongCredentials: boolean = false;
+  showWrongCredentials = false;
   validationMessages = {
     username: [
       { type: 'required', message: 'This field can\'t be empty.'},
@@ -29,6 +29,7 @@ export class LoginFormComponent implements OnInit {
       { type: 'nonalphabeticChars', message: 'The name can only contain alphabetic chars.'}
     ]
   };
+
   constructor(
       private formBuilder: FormBuilder,
       private auth: AuthService,

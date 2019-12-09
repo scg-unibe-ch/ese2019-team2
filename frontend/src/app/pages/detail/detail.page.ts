@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { SERVICES} from '../../mock-services';
 import {SearchService} from '../../services/search/search.service';
 
 @Component({

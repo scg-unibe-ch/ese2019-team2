@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.auth.logout();
   }
 
-  isThisLoginOrRegisterPage(){
-    return this.router.url === '/register' || this.router.url == '/login';
+  isThisLoginOrRegisterPage() {
+    return this.router.url === '/register' || this.router.url === '/login';
   }
 }

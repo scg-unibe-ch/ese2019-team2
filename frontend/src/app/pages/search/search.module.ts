@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SearchPage } from './search.page';
-import {SearchbarModule} from "../../common/searchbar/searchbar.module";
-import {HeaderModule} from "../../common/header/header.module";
+import {SearchbarModule} from '../../common/searchbar/searchbar.module';
+import {HeaderModule} from '../../common/header/header.module';
 
 const routes: Routes = [
   {
