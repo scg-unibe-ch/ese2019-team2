@@ -15,8 +15,10 @@
     </ion-item>
   </ion-radio-group>
 
-  <ion-select *ngIf="isCategory" placeholder="chose category..." class="dropdown" >
-    <ion-select-option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</ion-select-option>
+  <ion-select *ngIf="isCategory" placeholder="chose category..." class="dropdown" [formControlName]="givenName">
+    <div *ngFor="let category of categories">
+      <ion-select-option value="{{category.name}}">{{category.name}}</ion-select-option>
+    </div>
   </ion-select>
 
   <ng-container *ngIf="isPassword">

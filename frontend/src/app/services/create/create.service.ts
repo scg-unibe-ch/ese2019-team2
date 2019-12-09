@@ -29,7 +29,7 @@ export class CreateService {
     }
 
     // tslint:disable-next-line:max-line-length
-    createNewService(category: string, subCategory: string, userID: string, username: string, serviceName: string, img: string, price: number, maxPeople: number, location: string, street: string, city: string, zip: number, description: string, rating: number) {
+    createNewService(category: string, subCategory: string, userID: string, username: string, serviceName: string, img: string[], price: number, maxPeople: number, location: string, street: string, city: string, zip: number, description: string, rating: number) {
         const service = {
             category,
             subCategory,

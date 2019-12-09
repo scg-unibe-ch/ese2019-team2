@@ -5,8 +5,12 @@
     <app-form-input [givenName]="'category'" [text]="'Category'" [validationMessages]="validationMessages.category" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'subCategory'" [text]="'Sub-category'" [validationMessages]="validationMessages.subCategory" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'serviceName'" [text]="'Name of your service'" [validationMessages]="validationMessages.serviceName" [registerForm]="serviceForm"></app-form-input>
-    <app-form-input [givenName]="'img'" [text]="'Image URL'" [validationMessages]="validationMessages.img" [registerForm]="serviceForm"></app-form-input>
-    <ion-button (click)="onClickAddImageField()"><ion-icon name="add"></ion-icon> Add Image URL</ion-button>
+    <div *ngIf="imageIndices.length != (0 || null)">
+    <div *ngFor="let index of imageIndices">
+      <app-form-input [givenName]="'img' + index.toString()" [text]="'Image URL'" [validationMessages]="validationMessages.img" [registerForm]="serviceForm"></app-form-input>
+    </div>
+    </div>
+    <ion-button (click)="onClickAddImageField()" [disabled]="currentIndex === 10" color="medium"><ion-icon name="add"></ion-icon> add Image</ion-button>
     <app-form-input [givenName]="'price'" [text]="'Price'" [validationMessages]="validationMessages.price" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'maxPeople'" [text]="'Maximum of People'" [validationMessages]="validationMessages.maxPeople" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'location'" [text]="'Location'" [validationMessages]="validationMessages.location" [registerForm]="serviceForm"></app-form-input>

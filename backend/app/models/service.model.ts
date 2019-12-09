@@ -21,7 +21,7 @@ let ServiceSchema = new Schema({
         type: String
     },
     img: {
-        type: String
+        type: Array
     },
     price: {
         type: Number

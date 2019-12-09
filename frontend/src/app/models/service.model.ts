@@ -4,7 +4,7 @@ export class ServiceModel {
     subCategory: string;
     userID: string;
     username: string;
-    img: string;
+    img: string[];
     location: string;
     price: number;
     maxPeople: number;

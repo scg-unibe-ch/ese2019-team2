@@ -14,7 +14,8 @@ import {CreateService} from '../../services/create/create.service';
 export class NewservicePage implements OnInit {
 
   idTemp = null;
-  images = [];
+  currentIndex = 1;
+  imageIndices = [];
   errorMessage = '';
   serviceForm: FormGroup;
   validationMessages = {
@@ -64,13 +65,23 @@ export class NewservicePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.imageIndices.push(1);
     this.serviceForm = this.formBuilder.group({
-      category: ['', [Validators.required, alphabeticOnlyValidator]],
+      category: ['', [Validators.required]],
       subCategory: ['', []],
       userID: ['', []],
       username: ['', []],
       serviceName: ['', [Validators.required]],
-      img: ['', []],
+      img1: ['', []],
+      img2: ['', []],
+      img3: ['', []],
+      img4: ['', []],
+      img5: ['', []],
+      img6: ['', []],
+      img7: ['', []],
+      img8: ['', []],
+      img9: ['', []],
+      img10: ['', []],
       price: ['', [Validators.required, numberValidator]],
       maxPeople: ['', []],
       location: ['', [Validators.required, alphabeticOnlyValidator]],
@@ -90,7 +101,14 @@ export class NewservicePage implements OnInit {
     const userID = this.idTemp;
     const username = this.auth.getUsername();
     const serviceName = this.serviceForm.get('serviceName').value;
-    const img = this.serviceForm.get('img').value;
+    //const img = this.serviceForm.get('img').value;
+    let img = [];
+    if (this.imageIndices.length > 1) {
+      for (let i of this.imageIndices) {
+        img[i - 1] = this.serviceForm.get('img' + i.toString()).value.toString();
+      }
+    }
+    console.log(img);
     const price = this.serviceForm.get('price').value;
     const maxPeople = this.serviceForm.get('maxPeople').value;
     const location = this.serviceForm.get('location').value;
@@ -123,8 +141,9 @@ export class NewservicePage implements OnInit {
   }
 
   onClickAddImageField() {
-    this.images.push('');
-    console.log(this.images.length);
+    this.currentIndex++;
+    this.imageIndices.push(this.currentIndex);
+    console.log(this.imageIndices.length + ' ' + this.currentIndex);
   }
 
   canCreateService() {
