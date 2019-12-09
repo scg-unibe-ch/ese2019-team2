@@ -99,7 +99,7 @@ router.post('/profileInformation', async (req: Request, res: Response) => {
 });
 
 async function getUserInformation(userid: number, token: boolean = false) {
-   const userInformation = await User.findById(userid, '-password -_id -__v');
+   const userInformation = await User.findById(userid);
    let result;
    if (token) {
       result = {
