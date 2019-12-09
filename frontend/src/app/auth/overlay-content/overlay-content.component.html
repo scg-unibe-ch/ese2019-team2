@@ -1,13 +1,13 @@
 <ion-grid padding>
-  <ion-avatar><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
-  <ion-item-group *ngIf="showRegisterComponent">
-    <ion-text><h2>Register now</h2></ion-text>
-    <app-register-form></app-register-form>
-    <a (click)="onToggleComponentToShow()">Already signed up?</a>
-  </ion-item-group>
-  <ion-item-group *ngIf="showLoginComponent">
-    <ion-text><h2>Login</h2></ion-text>
-    <app-login-form></app-login-form>
-    <a (click)="onToggleComponentToShow()">Sign-in instead?</a>
-  </ion-item-group>
+    <ion-avatar><img alt="Site logo" src="https://via.placeholder.com/150"></ion-avatar>
+    <ion-item-group *ngIf="showRegisterComponent">
+        <ion-text><h2>Register now</h2></ion-text>
+        <app-register-form></app-register-form>
+        <a (click)="onToggleComponentToShow()">Already signed up?</a>
+    </ion-item-group>
+    <ion-item-group *ngIf="showLoginComponent">
+        <ion-text><h2>Login</h2></ion-text>
+        <app-login-form></app-login-form>
+        <a (click)="onToggleComponentToShow()">Sign-in instead?</a>
+    </ion-item-group>
 </ion-grid>

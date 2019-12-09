@@ -35,4 +35,26 @@
             </ion-list>
         </div>
     </div>
+    <div *ngIf="data.length">
+        <div class="ion-padding">
+            <ion-list>
+                <ion-item>
+                    <ion-title>Last Name</ion-title>
+                    <ion-text>{{currentUser.lastName}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>First Name</ion-title>
+                    <ion-text>{{currentUser.firstName}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>Email</ion-title>
+                    <ion-text>{{currentUser.email}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>User Name</ion-title>
+                    <ion-text>{{currentUser.username}}</ion-text>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
 </ion-content>

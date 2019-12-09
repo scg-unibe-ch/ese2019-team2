@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth-service/auth.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+   selector: 'app-footer',
+   templateUrl: './footer.component.html',
+   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+   constructor(private auth: AuthService) {
+   }
 
-  ngOnInit() {}
+   ngOnInit() {
+   }
 
-  canCreateNewService() {
-    return this.auth.canOpen('admin');
-  }
+   canCreateNewService() {
+      return this.auth.canOpen('admin');
+   }
 
 }

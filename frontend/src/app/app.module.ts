@@ -1,29 +1,29 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouteReuseStrategy} from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './auth/auth-service/auth.service';
-import { HttpClientModule } from '@angular/common/http';
-import { RoleGuardService } from './auth/auth-guard-service/roleguard.service';
-import { CommonModule } from '@angular/common';
-import { SearchService } from './services/search/search.service';
-import { CreateService } from './services/create/create.service';
-import { MenuModule } from './common/menu/menu.module';
-import { HeaderModule } from './common/header/header.module';
-import { SearchbarModule } from './common/searchbar/searchbar.module';
-import { SeparatingHeadlineModule } from './common/separating-headline/separating-headline.module';
-import { FooterModule } from './common/footer/footer.module';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AuthService} from './auth/auth-service/auth.service';
+import {HttpClientModule} from '@angular/common/http';
+import {RoleGuardService} from './auth/auth-guard-service/roleguard.service';
+import {CommonModule} from '@angular/common';
+import {SearchService} from './services/search/search.service';
+import {CreateService} from './services/create/create.service';
+import {MenuModule} from './common/menu/menu.module';
+import {HeaderModule} from './common/header/header.module';
+import {SearchbarModule} from './common/searchbar/searchbar.module';
+import {SeparatingHeadlineModule} from './common/separating-headline/separating-headline.module';
+import {FooterModule} from './common/footer/footer.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-    imports: [
+   declarations: [AppComponent],
+   entryComponents: [],
+   imports: [
       BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
@@ -34,16 +34,17 @@ import { FooterModule } from './common/footer/footer.module';
       SearchbarModule,
       SeparatingHeadlineModule,
       FooterModule
-    ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    AuthService,
-    RoleGuardService,
-    SearchService,
-    CreateService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-  ],
-  bootstrap: [AppComponent],
+   ],
+   providers: [
+      StatusBar,
+      SplashScreen,
+      AuthService,
+      RoleGuardService,
+      SearchService,
+      CreateService,
+      {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+   ],
+   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
