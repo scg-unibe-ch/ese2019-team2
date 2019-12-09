@@ -3,7 +3,7 @@ import {UserModel} from '../../models/user.model';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {decode} from 'jwt-decode';
+import decode from 'jwt-decode';
 
 // @ts-ignore
 @Injectable({
