@@ -1,6 +1,6 @@
 <ion-item [formGroup]="registerForm" lines="full">
-  <ion-label *ngIf="!isRole" position="floating">{{ text }}</ion-label>
-  <ion-input *ngIf="!isRole" (keydown.space)="inputChange($event)" [formControlName]="givenName"  [inputmode]="inputMode" [type]="type"></ion-input>
+  <ion-label *ngIf="!(isRole)" position="floating">{{ text }}</ion-label>
+  <ion-input *ngIf="!(isRole || isCategory)" (keydown.space)="inputChange($event)" [formControlName]="givenName"  [inputmode]="inputMode" [type]="type"></ion-input>
 
   <ion-radio-group *ngIf="isRole" class="roleButton" [formControlName]="givenName">
     <ion-row>{{ text }}</ion-row>
@@ -15,10 +15,15 @@
     </ion-item>
   </ion-radio-group>
 
-    <ng-container *ngIf="isPassword">
-        <ion-icon *ngIf="isHidingPw" slot="end" name="eye" (click)="showPassword(true)"></ion-icon>
-        <ion-icon *ngIf="isShowingPw" slot="end" name="eye-off" (click)="showPassword(false)"></ion-icon>
-    </ng-container>
+  <ion-select *ngIf="isCategory" placeholder="chose category..." class="dropdown" >
+    <ion-select-option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</ion-select-option>
+  </ion-select>
+
+  <ng-container *ngIf="isPassword">
+      <ion-icon *ngIf="isHidingPw" slot="end" name="eye" (click)="showPassword(true)"></ion-icon>
+      <ion-icon *ngIf="isShowingPw" slot="end" name="eye-off" (click)="showPassword(false)"></ion-icon>
+  </ng-container>
+
   <div class="validation-errors">
     <ng-container *ngFor="let validation of validationMessages">
       <div class="error-message" *ngIf="registerForm.get(givenName).hasError(validation.type) && (registerForm.get(givenName).dirty || registerForm.get(givenName).touched)">

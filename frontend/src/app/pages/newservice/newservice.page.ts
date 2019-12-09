@@ -14,12 +14,12 @@ import {CreateService} from '../../services/create/create.service';
 export class NewservicePage implements OnInit {
 
   idTemp = null;
+  images = [];
   errorMessage = '';
   serviceForm: FormGroup;
   validationMessages = {
     category: [
       { type: 'required', message: 'This field can\'t be empty.'},
-      { type: 'nonalphabeticChars', message: 'The category can only contain alphabetic chars.'}
     ],
     subCategory: [
       { type: 'required', message: 'This field can\'t be empty.'},
@@ -120,6 +120,11 @@ export class NewservicePage implements OnInit {
         .subscribe(() => {
           this.router.navigate(['/home']);
         });
+  }
+
+  onClickAddImageField() {
+    this.images.push('');
+    console.log(this.images.length);
   }
 
   canCreateService() {

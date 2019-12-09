@@ -1,5 +1,6 @@
 import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {CATEGORIES} from '../../categories';
 
 @Component({
   selector: 'app-form-input',
@@ -15,8 +16,11 @@ export class FormInputComponent implements OnInit {
   @Input() type = 'text';
   @Input() inputMode = 'text';
 
+  categories = CATEGORIES;
+
   isPassword = false;
   isRole = false;
+  isCategory = false;
   isShowingPw = false;
   get isHidingPw() {
     return !this.isShowingPw;
@@ -27,6 +31,7 @@ export class FormInputComponent implements OnInit {
   ngOnInit() {
     this.isPassword = this.type === 'password';
     this.isRole = this.type === 'role';
+    this.isCategory = this.givenName === 'category';
   }
 
 
