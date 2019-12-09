@@ -1,0 +1,18 @@
+.essential-info {
+  position: fixed;
+  top: 140px;
+  left: 500px;
+  height: 300px !important;
+  width: 100% !important;
+  border-top: 3px solid blue;
+
+  ion-card {
+    opacity: 0 !important;
+    background: rgba(255, 255, 255, 0.5);
+    border-top: 3px solid blue;
+  }
+
+  p {
+    margin-left: 20px;
+  }
+}

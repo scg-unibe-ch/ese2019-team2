@@ -1,0 +1,14 @@
+<ion-card>
+    <ion-header>
+        <ion-card-title>
+            {{ title }}
+        </ion-card-title>
+    </ion-header>
+    <ion-card-content class="ion-no-padding">
+        <ng-container *ngIf="showSkeleton">
+            <ion-skeleton-text style="height: 100px" animated></ion-skeleton-text>
+        </ng-container>
+        <ion-img (ionError)="onImageLoadError($event)" (ionImgDidLoad)="onImageLoadSuccess()" [src]="imgSrc"
+                 [alt]="title"></ion-img>
+    </ion-card-content>
+</ion-card>
