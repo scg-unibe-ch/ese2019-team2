@@ -14,10 +14,11 @@
     <app-form-input [givenName]="'price'" [text]="'Price'" [validationMessages]="validationMessages.price" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'maxPeople'" [text]="'Maximum of People'" [validationMessages]="validationMessages.maxPeople" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'location'" [text]="'Location'" [validationMessages]="validationMessages.location" [registerForm]="serviceForm"></app-form-input>
+    <app-form-input [givenName]="'description'" [text]="'Description'" [validationMessages]="validationMessages.description" [registerForm]="serviceForm"></app-form-input>
+    <ion-header>Contact Information</ion-header>
     <app-form-input [givenName]="'street'" [text]="'Street'" [validationMessages]="validationMessages.street" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'city'" [text]="'City'" [validationMessages]="validationMessages.city" [registerForm]="serviceForm"></app-form-input>
     <app-form-input [givenName]="'zip'" [text]="'Zip'" [validationMessages]="validationMessages.zip" [registerForm]="serviceForm"></app-form-input>
-    <app-form-input [givenName]="'description'" [text]="'Description'" [validationMessages]="validationMessages.description" [registerForm]="serviceForm"></app-form-input>
 
     <ion-item *ngIf="errorMessage">
       <ion-text class="error-message" >{{ errorMessage }}</ion-text>

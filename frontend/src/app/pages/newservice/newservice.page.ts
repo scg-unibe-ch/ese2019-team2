@@ -103,12 +103,15 @@ export class NewservicePage implements OnInit {
     const serviceName = this.serviceForm.get('serviceName').value;
     //const img = this.serviceForm.get('img').value;
     let img = [];
+    let temp = null;
     if (this.imageIndices.length > 1) {
       for (let i of this.imageIndices) {
-        img[i - 1] = this.serviceForm.get('img' + i.toString()).value.toString();
+        temp = this.serviceForm.get('img' + i.toString()).value.toString();
+        if (temp !== ('' || null)) {
+          img[i - 1] = temp;
+        }
       }
     }
-    console.log(img);
     const price = this.serviceForm.get('price').value;
     const maxPeople = this.serviceForm.get('maxPeople').value;
     const location = this.serviceForm.get('location').value;
@@ -143,7 +146,6 @@ export class NewservicePage implements OnInit {
   onClickAddImageField() {
     this.currentIndex++;
     this.imageIndices.push(this.currentIndex);
-    console.log(this.imageIndices.length + ' ' + this.currentIndex);
   }
 
   canCreateService() {
