@@ -67,7 +67,10 @@ export class ProfilePage implements OnInit {
       console.log(this.changedUser.role, this.currentUser.role);
       this.allowEdit = false;
       // tslint:disable-next-line:max-line-length
-      const update = this.auth.updateUser(this.changedUser.id, this.changedUser.lastName, this.changedUser.firstName, this.changedUser.email, this.changedUser.username, this.changedUser.role);
+      const update = this.auth.updateUser(this.changedUser.id, this.changedUser.lastName, this.changedUser.firstName, this.changedUser.email, this.changedUser.username, this.changedUser.role)
+          .subscribe(data => {
+             console.log(data);
+          });
    }
 
    getUserInformation() {
