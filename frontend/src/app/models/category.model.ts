@@ -1,4 +1,4 @@
 export class CategoryModel {
-    name: string;
-    img: string;
+   name: string;
+   img: string;
 }

@@ -16,33 +16,37 @@
 </ion-toolbar>
 
 <ion-grid>
-  <ion-row class="searchbar">
-    <ion-col class="search">
-      <ion-searchbar (ionInput)="onSubmit($event.target.value)" (ionClear)="clean()" (ionCancel)="clean()"></ion-searchbar>
-    </ion-col>
-
-    <ion-col class="searchCriterion">
-      <ion-select placeholder="search in..." class="dropdown" [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)" selectedText="Username">
-        <ion-select-option *ngFor="let searchCriterion of searchCriteria" value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
-      </ion-select>
-    </ion-col>
-  </ion-row>
-
-  <div class="matches" *ngIf="this.services !== null && this.searchString !== ''">
-    <app-separating-headline [title]="'Your matches:'"></app-separating-headline>
-
-    <ion-grid>
-      <ion-row *ngIf="this.services.length === 0">
-        <div class="spinner">
-          <ion-spinner name="dots"></ion-spinner>
-        </div>
-      </ion-row>
-
-      <ion-row class="service-previews-search">
-        <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
-          <app-preview-card [routerLink]="['/detail/', service._id]" [title]=service.serviceName [imgSrc]="service.img"></app-preview-card>
+    <ion-row class="searchbar">
+        <ion-col class="search">
+            <ion-searchbar (ionInput)="onSubmit($event.target.value)" (ionClear)="clean()"
+                           (ionCancel)="clean()"></ion-searchbar>
         </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+
+        <ion-col class="searchCriterion">
+            <ion-select placeholder="search in..." class="dropdown" [(ngModel)]="selection"
+                        (ionChange)="onDropdownChange(selection)" selectedText="Username">
+                <ion-select-option *ngFor="let searchCriterion of searchCriteria"
+                                   value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
+            </ion-select>
+        </ion-col>
+    </ion-row>
+
+    <div class="matches" *ngIf="this.services !== null && this.searchString !== ''">
+        <app-separating-headline [title]="'Your matches:'"></app-separating-headline>
+
+        <ion-grid>
+            <ion-row *ngIf="this.services.length === 0">
+                <div class="spinner">
+                    <ion-spinner name="dots"></ion-spinner>
+                </div>
+            </ion-row>
+
+            <ion-row class="service-previews-search">
+                <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
+                    <app-preview-card [routerLink]="['/detail/', service._id]" [title]=service.serviceName
+                                      [imgSrc]="service.img"></app-preview-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 </ion-grid>

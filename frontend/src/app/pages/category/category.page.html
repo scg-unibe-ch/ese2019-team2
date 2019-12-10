@@ -4,7 +4,8 @@
         <ion-grid>
             <ion-row class="service-previews">
                 <ion-col *ngFor="let service of services" size="12" size-sm="6" size-md="3">
-                    <app-preview-card [routerLink]="['/detail/', service._id]" [title]=service.serviceName [imgSrc]="service.img"></app-preview-card>
+                    <app-preview-card [routerLink]="['/detail/', service._id]" [title]=service.serviceName
+                                      [imgSrc]="service.img"></app-preview-card>
                 </ion-col>
             </ion-row>
         </ion-grid>

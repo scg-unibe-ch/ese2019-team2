@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-register-overlay-content',
-  templateUrl: './overlay-content.component.html',
-  styleUrls: ['./overlay-content.component.scss'],
+   selector: 'app-register-overlay-content',
+   templateUrl: './overlay-content.component.html',
+   styleUrls: ['./overlay-content.component.scss'],
 })
 export class OverlayContentComponent implements OnInit {
 
-  private showRegisterComponent: boolean;
-  private showLoginComponent: boolean;
+   private showRegisterComponent: boolean;
+   private showLoginComponent: boolean;
 
-  constructor() { }
+   constructor() {
+   }
 
-  ngOnInit() {
-    this.showRegisterComponent = true;
-    this.showLoginComponent = false;
-  }
-  onToggleComponentToShow() {
-    this.showRegisterComponent = !this.showRegisterComponent;
-    this.showLoginComponent = !this.showLoginComponent;
-  }
+   ngOnInit() {
+      this.showRegisterComponent = true;
+      this.showLoginComponent = false;
+   }
+
+   onToggleComponentToShow() {
+      this.showRegisterComponent = !this.showRegisterComponent;
+      this.showLoginComponent = !this.showLoginComponent;
+   }
 }
