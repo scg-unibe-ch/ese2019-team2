@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
    }
 
    canCreateNewService() {
-      return this.auth.canOpen('admin');
+      return this.auth.canOpen('serviceProvider');
    }
 
 }

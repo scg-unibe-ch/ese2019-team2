@@ -50,8 +50,8 @@ export class NewservicePage implements OnInit {
       description: [
          {type: 'required', message: 'This field can\'t be empty.'}
       ],
-      rating: [
-         {type: 'nonnumeric', message: 'The rating has to be numeric'}
+      clicks: [
+         {type: 'nonnumeric', message: 'The clicks has to be numeric'}
       ]
    };
 
@@ -90,7 +90,7 @@ export class NewservicePage implements OnInit {
          city: ['', []],
          zip: ['', []],
          description: ['', [Validators.required]],
-         rating: ['', []],
+         clicks: ['', []],
       }, {});
       // load Id in temp storage to write it to service on submit afterwards
       this.loadUserID();
@@ -120,7 +120,7 @@ export class NewservicePage implements OnInit {
       const city = this.serviceForm.get('city').value;
       const zip = this.serviceForm.get('zip').value;
       const description = this.serviceForm.get('description').value;
-      const rating = this.serviceForm.get('rating').value;
+      const clicks = this.serviceForm.get('clicks').value;
 
       // tslint:disable-next-line:max-line-length
       this.creator.createNewService(
@@ -137,7 +137,7 @@ export class NewservicePage implements OnInit {
          city,
          zip,
          description,
-         rating
+         clicks
       )
          .subscribe(() => {
             this.router.navigate(['/home']);
@@ -150,7 +150,7 @@ export class NewservicePage implements OnInit {
    }
 
    canCreateService() {
-      return this.auth.canOpen('admin');
+      return this.auth.canOpen('serviceProvider');
    }
 
    loadUserID() {

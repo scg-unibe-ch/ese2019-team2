@@ -19,7 +19,7 @@
                         Profile
                     </ion-label>
                 </ion-item>
-                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('admin')" [routerDirection]="'root'"
+                <ion-item *ngIf="auth.isLoggedIn() && auth.canOpen('serviceProvider')" [routerDirection]="'root'"
                           [routerLink]="['/my-services']">
                     <ion-label>
                         <ion-icon slot="start" name="apps"></ion-icon>

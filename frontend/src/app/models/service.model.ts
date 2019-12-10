@@ -13,5 +13,37 @@ export class ServiceModel {
    city: string;
    zip: string;
    phone: string;
-   rating: number;
+   clicks: number;
+
+   constructor(
+       category: string,
+       subCategory: string,
+       userID: string,
+       username: string,
+       serviceName: string,
+       img: string[],
+       price: number,
+       maxPeople: number,
+       location: string,
+       street: string,
+       city: string,
+       zip: string,
+       description: string,
+       clicks: number
+   ) {
+      this.category = category;
+      this.subCategory = subCategory;
+      this.userID = userID;
+      this.username = username;
+      this.serviceName = serviceName;
+      this.img = img;
+      this.price = price;
+      this.maxPeople = maxPeople;
+      this.location = location;
+      this.street = street;
+      this.city = city;
+      this.zip = zip;
+      this.description = description;
+      this.clicks = clicks;
+   }
 }

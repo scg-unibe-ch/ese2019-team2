@@ -1,11 +1,12 @@
 <app-header title="Profile"></app-header>
 <ion-content>
     <div>
+        <app-separating-headline [title]="'User Information'"></app-separating-headline>
+
         <div class="ion-padding">
             <ion-list>
                 <ion-item>
-                    <ion-title>Last Name
-                    </ion-title>
+                    <ion-title>Last Name</ion-title>
                     <ion-input *ngIf="allowEdit" type="text" placeholder="{{currentUser.lastName}}" name="lastName"
                                [(ngModel)]="currentUser.lastName"></ion-input>
                     <ion-text *ngIf="!allowEdit">{{currentUser.lastName}}</ion-text>
@@ -23,12 +24,24 @@
                     <ion-text *ngIf="!allowEdit">{{currentUser.email}}</ion-text>
                 </ion-item>
                 <ion-item>
-                    <ion-title>User Name</ion-title>
+                    <ion-title>Username</ion-title>
                     <ion-text>{{currentUser.username}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>Role</ion-title>
+                    <ion-text *ngIf="currentUser.role === 'serviceProvider'">Service Provider</ion-text>
+                    <ion-text *ngIf="currentUser.role === 'user'">User</ion-text>
+                    <ion-text *ngIf="currentUser.role === 'admin'">Admin</ion-text>
                 </ion-item>
             </ion-list>
         </div>
         <ion-button *ngIf="!allowEdit" size="default" type="click" (click)="onClick()">Edit</ion-button>
         <ion-button *ngIf="allowEdit" size="default" type="submit" (click)="onSubmit()">Save</ion-button>
+
+        <app-separating-headline [title]="'Your Services:'"></app-separating-headline>
+
+        <div class="ion-padding">
+            <app-service-list-item></app-service-list-item>
+        </div>
     </div>
 </ion-content>

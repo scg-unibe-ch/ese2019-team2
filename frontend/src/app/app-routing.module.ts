@@ -11,7 +11,7 @@ const routes: Routes = [
       path: 'profile',
       loadChildren: './pages/profile/profile.module#ProfilePageModule',
       canActivate: [RoleGuardService],
-      data: {expectedRole: 'user'}
+      data: {expectedRole: ('user' || 'serviceProvider')}
    },
    {
       path: 'admin', loadChildren: './pages/admin/admin.module#AdminPageModule', canActivate: [RoleGuardService],

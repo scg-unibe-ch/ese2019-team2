@@ -1,0 +1,7 @@
+<ion-list>
+  <ion-item *ngFor="let service of services">
+    <ion-title>{{service.serviceName}}</ion-title>
+    <ion-text class="clicks">{{service.clicks}} clicks</ion-text>
+    <ion-button class="deleteButton" (click)="delete(service._id)">Delete</ion-button>
+  </ion-item>
+</ion-list>

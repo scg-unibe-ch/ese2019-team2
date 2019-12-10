@@ -19,6 +19,7 @@ import {HeaderModule} from './common/header/header.module';
 import {SearchbarModule} from './common/searchbar/searchbar.module';
 import {SeparatingHeadlineModule} from './common/separating-headline/separating-headline.module';
 import {FooterModule} from './common/footer/footer.module';
+import {ServiceListItemModule} from './common/service-list-item/service-list-item.module';
 
 @NgModule({
    declarations: [AppComponent],
@@ -33,7 +34,8 @@ import {FooterModule} from './common/footer/footer.module';
       MenuModule,
       SearchbarModule,
       SeparatingHeadlineModule,
-      FooterModule
+      FooterModule,
+       ServiceListItemModule
    ],
    providers: [
       StatusBar,

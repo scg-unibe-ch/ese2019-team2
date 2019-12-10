@@ -62,8 +62,8 @@ let ServiceSchema = new Schema({
       type: String
    }
    ,
-   rating: {
+   clicks: {
       type: Number
    }
-})
+});
 module.exports = mongoose.model('Service', ServiceSchema);

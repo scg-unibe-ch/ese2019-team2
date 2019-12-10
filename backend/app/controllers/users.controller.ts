@@ -85,7 +85,7 @@ router.post('/register', async (req: Request, res: Response) => {
 });
 
 router.post('/edit', async (req: Request, res: Response) => {
-   User.findOneAndUpdate({_id: req.body.id}, {
+   User.findOneAndUpdate({_id: req.body._id}, {
       $set: {
          lastName: req.body.lastName,
          firstName: req.body.firstName,

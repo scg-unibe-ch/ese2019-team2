@@ -110,4 +110,26 @@ router.post('/add', async (req: Request, res: Response) => {
       });
 });
 
+// request specific service and delete
+router.get('/delete/:_id', async (req: Request, res: Response) => {
+   Service.findByIdAndRemove({_id: req.params._id}, (err: any, service: any) => {
+      if (err) {
+         res.status(418).json(err);
+      } else {
+         res.json('Remove successful');
+      }
+   });
+});
+
+// request all services for adminpage
+router.get('/all', async (req: Request, res: Response) => {
+   Service.find((err: any, services: any) => {
+      if (err) {
+         res.status(418).json(err);
+      } else {
+         res.status(200).json(services);
+      }
+   });
+});
+
 export const ServicesController: Router = router;

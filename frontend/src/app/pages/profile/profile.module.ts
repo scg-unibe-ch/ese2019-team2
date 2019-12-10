@@ -7,6 +7,8 @@ import {IonicModule} from '@ionic/angular';
 
 import {ProfilePage} from './profile.page';
 import {HeaderModule} from '../../common/header/header.module';
+import {SeparatingHeadlineModule} from "../../common/separating-headline/separating-headline.module";
+import {ServiceListItemModule} from "../../common/service-list-item/service-list-item.module";
 
 const routes: Routes = [
    {
@@ -16,13 +18,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-   imports: [
-      CommonModule,
-      FormsModule,
-      IonicModule,
-      RouterModule.forChild(routes),
-      HeaderModule
-   ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        HeaderModule,
+        SeparatingHeadlineModule,
+        ServiceListItemModule
+    ],
    declarations: [ProfilePage]
 })
 export class ProfilePageModule {
