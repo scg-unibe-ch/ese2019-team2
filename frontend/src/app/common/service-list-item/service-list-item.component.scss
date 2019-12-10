@@ -1,5 +1,6 @@
 .clicks {
   align-self: center;
+  alignment: center;
 }
 
 @media (min-width: 500px) {
@@ -9,3 +10,8 @@
   }
 }
 
+@media (max-width: 500px) {
+  .clicks{
+    display: none;
+  }
+}
