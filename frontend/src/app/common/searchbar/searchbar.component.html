@@ -1,3 +1,20 @@
+
+<ion-toolbar class="searchtoolbar" color="dark">
+  <ion-grid class="toolbarContent">
+    <ion-row>
+      <ion-col>
+        <ion-searchbar placeholder="" (ionInput)="onSubmit($event.target.value)" (ionClear)="clean()" (ionCancel)="clean()" showCancelButton="false"></ion-searchbar>
+      </ion-col>
+
+      <ion-col>
+        <ion-select class="dropdownToolbar" [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)" selectedText="Username">
+          <ion-select-option *ngFor="let searchCriterion of searchCriteria" value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
+
 <ion-grid>
   <ion-row class="searchbar">
     <ion-col class="search">

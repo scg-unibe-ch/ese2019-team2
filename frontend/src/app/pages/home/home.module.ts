@@ -12,6 +12,7 @@ import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
 import {FooterModule} from '../../common/footer/footer.module';
 import {SearchbarModule} from '../../common/searchbar/searchbar.module';
 import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
+import {SearchtoolbarModule} from '../../common/searchtoolbar/searchtoolbar.module';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import {SeparatingHeadlineModule} from '../../common/separating-headline/separat
         PreviewCardModule,
         FooterModule,
         SearchbarModule,
-        SeparatingHeadlineModule
+        SeparatingHeadlineModule,
+        SearchtoolbarModule
     ],
   declarations: [HomePage]
 })
