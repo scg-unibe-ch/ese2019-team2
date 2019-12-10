@@ -17,7 +17,7 @@ interface Service {
    city: string;
    zip: string;
    phone: string;
-   rating: number;
+   clicks: number;
 }
 
 @Injectable({
@@ -28,8 +28,16 @@ export class SearchService {
    constructor(private request: RequestService, private http: HttpClient, private router: Router) {
    }
 
+   getCreatorOfService(username: string) {
+      return this.request.getAsJson<Service>(`http://localhost:3000/users/${username}`);
+   }
+
    getServiceDetail(serviceID: string) {
       return this.request.getAsJson<Service>(`http://localhost:3000/services/detail/${serviceID}`);
+   }
+
+   getAllServices() {
+      return this.request.getAsJson<Service>(`http://localhost:3000/services/all`);
    }
 
    searchServicesby(searchCriterion: string, searchString: string) {

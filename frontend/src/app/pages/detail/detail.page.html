@@ -7,19 +7,19 @@
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        <app-image-slider [detailImgs]="[s.img, s.img]" title="image-slider"></app-image-slider>
+                        <app-image-slider [detailImgs]="s.img" title="image-slider"></app-image-slider>
                     </ion-col>
                     <ion-col>
-                        <app-essential title="essential-info"></app-essential>
+                        <app-essential [service]="s" title="essential-info"></app-essential>
                     </ion-col>
                 </ion-row>
 
                 <ion-row>
                     <ion-col>
-                        <app-description title="description"></app-description>
+                        <app-description [service]="s" title="description"></app-description>
                     </ion-col>
                     <ion-col>
-                        <app-contact-information title="contact-info"></app-contact-information>
+                        <app-contact-information [service]="s" title="contact-info"></app-contact-information>
                     </ion-col>
                 </ion-row>
             </ion-grid>

@@ -1,0 +1,17 @@
+.clicks {
+  align-self: center;
+  alignment: center;
+}
+
+@media (min-width: 500px) {
+  ion-list {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+@media (max-width: 500px) {
+  .clicks{
+    display: none;
+  }
+}

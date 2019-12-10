@@ -8,6 +8,8 @@ import {IonicModule} from '@ionic/angular';
 import {AdminPage} from './admin.page';
 import {HeaderModule} from 'src/app/common/header/header.module';
 import {AuthModule} from '../../auth/auth.module';
+import {ServiceListItemModule} from '../../common/service-list-item/service-list-item.module';
+import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
 
 const routes: Routes = [
    {
@@ -17,13 +19,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
+
    imports: [
       CommonModule,
       FormsModule,
       IonicModule,
       HeaderModule,
       AuthModule,
-      RouterModule.forChild(routes)
+      RouterModule.forChild(routes),
+      ServiceListItemModule,
+      SeparatingHeadlineModule
    ],
    declarations: [AdminPage]
 })

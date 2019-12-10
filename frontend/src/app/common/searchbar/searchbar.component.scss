@@ -1,16 +1,45 @@
+@media (max-width: 500px) {
+  .searchbar {
+    display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .searchtoolbar {
+    display: none;
+  }
+}
+
+.searchtoolbar {
+  align-self: center;
+  align-content: center;
+}
+
+.toolbarContent {
+  margin-top: 5px;
+}
+
+.search {
+  width: 50px;
+}
+
 .searchbar {
   padding-top: 18%;
   padding-bottom: 18%;
   padding-left: 20%;
   padding-right: 20%;
   background-image: url("https://europeanbusinessmagazine.com/wp-content/uploads/2019/05/event.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   align-self: center;
 }
 
 .dropdown {
   background-color: whitesmoke;
+  align-self: center;
+}
+
+.dropdownToolbar {
   align-self: center;
 }
 

@@ -1,6 +1,11 @@
-ion-list {
-  margin-left: 20%;
-  margin-right: 20%;
+@media (min-width: 500px) {
+  ion-list {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  ion-input {
+    margin-left: 70%;
+  }
 }
 
 ion-button {
@@ -8,7 +13,6 @@ ion-button {
 }
 
 ion-input {
-  margin-left: 70%;
   text-align: right;
   color: #989aa2;
   font-style: italic;
@@ -16,4 +20,11 @@ ion-input {
 
 ion-item {
 
+}
+
+.deleteButton {
+}
+
+.clicks {
+ align-self: center;
 }

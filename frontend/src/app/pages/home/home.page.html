@@ -9,7 +9,7 @@
     <ion-grid>
         <ion-row class="category-previews">
             <ion-col *ngFor="let category of categories" size="12" size-sm="6" size-md="3" class="categories">
-                <app-preview-card [routerLink]="['/category', category.name]" [imgSrc]="category.img"
+                <app-preview-card [routerLink]="['/category', category.name]" [imgSrc]="[category.img]"
                                   title={{category.name}}></app-preview-card>
             </ion-col>
         </ion-row>

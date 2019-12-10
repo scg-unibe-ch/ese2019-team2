@@ -46,7 +46,7 @@ export class RegisterFormComponent implements OnInit {
          {type: 'passwordSpaceRestriction', message: 'The password can\'t contain a space'}
       ],
       role: [
-         {type: 'required'}
+         {type: 'required', message: ''}
       ]
    };
 

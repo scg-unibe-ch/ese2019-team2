@@ -111,7 +111,7 @@ export class AuthService {
       const currentRole = tokenPayload.payload.role;
       if (expectedRole === currentRole) {
          return true;
-      } else if (expectedRole === 'user' && currentRole === 'admin') {
+      } else if (expectedRole === 'user' && (currentRole === 'admin' || currentRole === 'serviceProvider')) {
          return true;
       } else {
          return false;

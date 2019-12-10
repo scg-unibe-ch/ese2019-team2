@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SearchbarComponent} from './searchbar.component';
+import {ServiceListItemComponent} from './service-list-item.component';
 import {AuthModule} from '../../auth/auth.module';
 import {IonicModule} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
@@ -10,7 +10,7 @@ import {SeparatingHeadlineModule} from '../separating-headline/separating-headli
 
 
 @NgModule({
-   declarations: [SearchbarComponent],
+   declarations: [ServiceListItemComponent],
     imports: [
         CommonModule,
         AuthModule,
@@ -21,7 +21,7 @@ import {SeparatingHeadlineModule} from '../separating-headline/separating-headli
         SeparatingHeadlineModule,
         ReactiveFormsModule
     ],
-   exports: [SearchbarComponent]
+   exports: [ServiceListItemComponent]
 })
-export class SearchbarModule {
+export class ServiceListItemModule {
 }

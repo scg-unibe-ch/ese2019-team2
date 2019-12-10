@@ -8,7 +8,7 @@
         <ng-container *ngIf="showSkeleton">
             <ion-skeleton-text style="height: 100px" animated></ion-skeleton-text>
         </ng-container>
-        <ion-img (ionError)="onImageLoadError($event)" (ionImgDidLoad)="onImageLoadSuccess()" [src]="imgSrc"
-                 [alt]="title"></ion-img>
+        <ion-img (ionError)="onImageLoadError($event)" (ionImgDidLoad)="onImageLoadSuccess()"
+                 [src]="imgSrc[0]" [alt]="title"></ion-img>
     </ion-card-content>
 </ion-card>

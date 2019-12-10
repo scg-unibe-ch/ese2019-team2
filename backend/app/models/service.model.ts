@@ -47,10 +47,10 @@ let ServiceSchema = new Schema({
    },
    phone: {
       type: String
-   },
-   rating: {
+   }
+   ,
+   clicks: {
       type: Number
    }
 });
-
 module.exports = mongoose.model('Service', ServiceSchema);

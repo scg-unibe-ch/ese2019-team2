@@ -29,7 +29,23 @@ export class CreateService {
    }
 
    // tslint:disable-next-line:max-line-length
-   createNewService(category: string, subCategory: string, userID: string, username: string, serviceName: string, img: string[], price: number, maxPeople: number, location: string, street: string, city: string, zip: number, description: string, rating: number) {
+   createNewService(
+       category: string,
+       subCategory: string,
+       userID: string,
+       username: string,
+       serviceName: string,
+       img: string[],
+       price: number,
+       maxPeople: number,
+       location: string,
+       street: string,
+       city: string,
+       zip: string,
+       phone: string,
+       description: string,
+       clicks: number
+   ) {
       const service = {
          category,
          subCategory,
@@ -43,8 +59,9 @@ export class CreateService {
          street,
          city,
          zip,
+         phone,
          description,
-         rating
+         clicks
       };
       return this.http.post<any>('http://localhost:3000/services/add', service);
    }

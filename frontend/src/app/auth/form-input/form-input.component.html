@@ -12,11 +12,11 @@
 
         <ion-item>
             <ion-label>Service provider</ion-label>
-            <ion-radio slot="start" value="admin"></ion-radio>
+            <ion-radio slot="start" value="serviceProvider"></ion-radio>
         </ion-item>
     </ion-radio-group>
 
-    <ion-select *ngIf="isCategory" placeholder="chose category..." class="dropdown" [formControlName]="givenName">
+    <ion-select *ngIf="isCategory" interface="popover" placeholder="chose category..." class="dropdown" [formControlName]="givenName">
         <div *ngFor="let category of categories">
             <ion-select-option value="{{category.name}}">{{category.name}}</ion-select-option>
         </div>

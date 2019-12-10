@@ -3,6 +3,8 @@ import {AuthService} from 'src/app/auth/auth-service/auth.service';
 import decode from 'jwt-decode';
 import {UserModel} from '../../models/user.model';
 import {HttpClient} from '@angular/common/http';
+import {SearchService} from '../../services/search/search.service';
+import {DeleteService} from '../../services/delete/delete.service';
 
 @Component({
    selector: 'app-profile',
@@ -19,8 +21,14 @@ export class ProfilePage implements OnInit {
 
    data = [];
 
-   constructor(private auth: AuthService, private http: HttpClient) {
-   }
+   services = null;
+
+   constructor(
+       private auth: AuthService,
+       private http: HttpClient,
+       private search: SearchService,
+       private deleteS: DeleteService,
+   ) { }
 
    ionViewDidEnter() {
       this.getUserId();
