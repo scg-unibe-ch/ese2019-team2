@@ -47,6 +47,7 @@ export class NewservicePage implements OnInit {
       street: [],
       city: [],
       zip: [],
+      phone: [],
       description: [
          {type: 'required', message: 'This field can\'t be empty.'}
       ],
@@ -89,6 +90,7 @@ export class NewservicePage implements OnInit {
          street: ['', []],
          city: ['', []],
          zip: ['', []],
+         phone: ['', []],
          description: ['', [Validators.required]],
          clicks: ['', []],
       }, {});
@@ -119,6 +121,7 @@ export class NewservicePage implements OnInit {
       const street = this.serviceForm.get('street').value;
       const city = this.serviceForm.get('city').value;
       const zip = this.serviceForm.get('zip').value;
+      const phone = this.serviceForm.get('phone').value;
       const description = this.serviceForm.get('description').value;
       const clicks = this.serviceForm.get('clicks').value;
 
@@ -136,6 +139,7 @@ export class NewservicePage implements OnInit {
          street,
          city,
          zip,
+         phone,
          description,
          clicks
       )

@@ -42,6 +42,7 @@ export class CreateService {
        street: string,
        city: string,
        zip: string,
+       phone: string,
        description: string,
        clicks: number
    ) {
@@ -58,6 +59,7 @@ export class CreateService {
          street,
          city,
          zip,
+         phone,
          description,
          clicks
       };

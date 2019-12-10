@@ -4,12 +4,13 @@
     </ion-card-header>
     <ion-list>
         <ion-item><h2>Address</h2></ion-item>
-        <p>Street</p>
-        <p>City</p>
-        <p>Zip code</p>
+        <p>{{service.street}}</p>
+        <p>{{service.zip}} {{service.city}}</p>
         <ion-item><h2>E-Mail</h2></ion-item>
-        <p>not_a@real.email</p>
-        <ion-item><h2>Phone</h2></ion-item>
-        <p>079 123 34 56</p>
+        <p>{{creatorOfService.email}}</p>
+        <div *ngIf="service.phone !== '' && service.phone !== null && service.phone">
+            <ion-item><h2>Phone</h2></ion-item>
+            <p>{{service.phone}}</p>
+        </div>
     </ion-list>
 </ion-card>

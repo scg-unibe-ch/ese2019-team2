@@ -1,3 +1,30 @@
+@media (min-width: 500px) {
+  ion-title {
+    letter-spacing: 5px;
+  }
+
+  .divider {
+    border-image-slice: 1;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  ion-title {
+    letter-spacing: 2px;
+  }
+
+  .title {
+    alignment: center;
+  }
+
+  .divider {
+    border-image-slice: 1;
+    margin-top: 10px;
+    height: 60px;
+  }
+}
+
 .divider {
   border-bottom: solid transparent 2px;
   border-top: solid transparent 2px;
@@ -14,7 +41,6 @@
 ion-title {
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 5px;
   font-size: 150%;
   padding-bottom: 5px;
   padding-top: 5px;

@@ -28,6 +28,10 @@ export class SearchService {
    constructor(private request: RequestService, private http: HttpClient, private router: Router) {
    }
 
+   getCreatorOfService(username: string) {
+      return this.request.getAsJson<Service>(`http://localhost:3000/users/${username}`);
+   }
+
    getServiceDetail(serviceID: string) {
       return this.request.getAsJson<Service>(`http://localhost:3000/services/detail/${serviceID}`);
    }

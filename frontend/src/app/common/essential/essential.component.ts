@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
    selector: 'app-essential',
@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
    styleUrls: ['./essential.component.scss'],
 })
 export class EssentialComponent implements OnInit {
+
+   @Input() service;
 
    constructor() {
    }

@@ -28,6 +28,7 @@ export class ServiceModel {
        street: string,
        city: string,
        zip: string,
+       phone: string,
        description: string,
        clicks: number
    ) {
@@ -43,6 +44,7 @@ export class ServiceModel {
       this.street = street;
       this.city = city;
       this.zip = zip;
+      this.phone = phone;
       this.description = description;
       this.clicks = clicks;
    }
