@@ -147,7 +147,7 @@ On your profile page you will find a quick overview about you and if service pro
 
 Created by:
 
-Joshua Felder
-Aaron Saegesser
+Joshua Felder,
+Aaron Saegesser,
 Dosif Mahilvathanan
 
