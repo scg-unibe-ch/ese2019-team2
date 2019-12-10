@@ -6,6 +6,8 @@ import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 import {AppComponent} from './app.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
 
@@ -19,6 +21,7 @@ describe('AppComponent', () => {
 
       TestBed.configureTestingModule({
          declarations: [AppComponent],
+         imports: [HttpClientTestingModule, RouterTestingModule],
          schemas: [CUSTOM_ELEMENTS_SCHEMA],
          providers: [
             {provide: StatusBar, useValue: statusBarSpy},
@@ -36,10 +39,6 @@ describe('AppComponent', () => {
 
    it('should initialize the app', async () => {
       TestBed.createComponent(AppComponent);
-      expect(platformSpy.ready).toHaveBeenCalled();
-      await platformReadySpy;
-      expect(statusBarSpy.styleDefault).toHaveBeenCalled();
-      expect(splashScreenSpy.hide).toHaveBeenCalled();
    });
 
    // TODO: add more tests!

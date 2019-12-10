@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
@@ -26,6 +26,7 @@ const routes: Routes = [
       ReactiveFormsModule,
       HeaderModule
    ],
+   providers: [FormBuilder, FormGroup],
    declarations: [NewservicePage]
 })
 export class NewservicePageModule {

@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {SearchPage} from './search.page';
 import {SearchbarModule} from '../../common/searchbar/searchbar.module';
 import {HeaderModule} from '../../common/header/header.module';
+import {AuthModule} from '../../auth/auth.module';
 
 const routes: Routes = [
    {
@@ -23,7 +24,8 @@ const routes: Routes = [
       IonicModule,
       RouterModule.forChild(routes),
       SearchbarModule,
-      HeaderModule
+      HeaderModule,
+      AuthModule
    ],
    declarations: [SearchPage]
 })

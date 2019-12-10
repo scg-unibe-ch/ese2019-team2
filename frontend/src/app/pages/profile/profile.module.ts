@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {ProfilePage} from './profile.page';
 import {HeaderModule} from '../../common/header/header.module';
+import {AuthModule} from '../../auth/auth.module';
 
 const routes: Routes = [
    {
@@ -21,7 +22,8 @@ const routes: Routes = [
       FormsModule,
       IonicModule,
       RouterModule.forChild(routes),
-      HeaderModule
+      HeaderModule,
+      AuthModule
    ],
    declarations: [ProfilePage]
 })

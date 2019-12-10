@@ -24,7 +24,7 @@ const routes: Routes = [
       IonicModule,
       RouterModule.forChild(routes),
       AuthModule,
-      HeaderModule
+      HeaderModule,
    ],
    declarations: [RegisterPage]
 })

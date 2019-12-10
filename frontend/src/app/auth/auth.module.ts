@@ -20,6 +20,7 @@ import {FormInputComponent} from './form-input/form-input.component';
    ],
    exports: [
       OverlayControllerComponent,
+      OverlayContentComponent,
       LoginFormComponent,
       RegisterFormComponent,
       FormInputComponent
