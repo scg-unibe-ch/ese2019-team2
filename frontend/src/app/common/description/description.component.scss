@@ -1,7 +1,12 @@
-.description {
+ion-title {
   position: fixed;
-  left: 500px;
-  top: 475px;
-  height: 100% !important;;
-  width: 100% !important;
+  top: 51%;
+  left: 27%;
+}
+ion-textarea {
+  position: fixed;
+  left: 27%;
+  right: 10px;
+  top: 53%;
+  width: 68%;
 }

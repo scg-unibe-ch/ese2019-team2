@@ -15,8 +15,9 @@
                 </ion-row>
 
                 <ion-row>
+                    <ion-title></ion-title>
                     <ion-col>
-                        <app-description [service]="s" title="description"></app-description>
+                        <app-description [title]="s.serviceName" [service]="s" title="description"></app-description>
                     </ion-col>
                     <ion-col>
                         <app-contact-information [service]="s" title="contact-info"></app-contact-information>
