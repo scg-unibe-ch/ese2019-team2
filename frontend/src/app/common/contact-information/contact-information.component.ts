@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from "../../auth/auth-service/auth.service";
-import {SearchService} from "../../services/search/search.service";
+import {AuthService} from '../../auth/auth-service/auth.service';
+import {SearchService} from '../../services/search/search.service';
+import {ServiceModel} from '../../models/service.model';
 
 @Component({
    selector: 'app-contact-information',
@@ -9,7 +10,7 @@ import {SearchService} from "../../services/search/search.service";
 })
 export class ContactInformationComponent implements OnInit {
 
-   @Input() service;
+   @Input() service: ServiceModel;
 
    creatorOfService = null;
 

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ServiceModel} from '../../models/service.model';
 
 @Component({
    selector: 'app-description',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DescriptionComponent implements OnInit {
 
-   @Input() service;
+   @Input() service: ServiceModel;
 
    constructor() {
    }
