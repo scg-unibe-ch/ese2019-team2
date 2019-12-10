@@ -3,12 +3,15 @@
   <ion-grid class="toolbarContent">
     <ion-row>
       <ion-col>
-        <ion-searchbar placeholder="" (ionInput)="onSubmit($event.target.value)" (ionClear)="clean()" (ionCancel)="clean()" showCancelButton="false"></ion-searchbar>
+        <ion-searchbar placeholder="" (ionInput)="onSubmit($event.target.value)"
+                       (ionClear)="clean()" (ionCancel)="clean()"></ion-searchbar>
       </ion-col>
 
       <ion-col>
-        <ion-select class="dropdownToolbar" [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)" selectedText="Username">
-          <ion-select-option *ngFor="let searchCriterion of searchCriteria" value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
+        <ion-select placeholder="Username" interface="popover" class="dropdownToolbar"
+                    [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)">
+          <ion-select-option *ngFor="let searchCriterion of searchCriteria"
+                             value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
         </ion-select>
       </ion-col>
     </ion-row>
@@ -23,8 +26,8 @@
         </ion-col>
 
         <ion-col class="searchCriterion">
-            <ion-select placeholder="search in..." class="dropdown" [(ngModel)]="selection"
-                        (ionChange)="onDropdownChange(selection)" selectedText="Username">
+            <ion-select placeholder="Username" interface="popover" class="dropdown"
+                        [(ngModel)]="selection" (ionChange)="onDropdownChange(selection)">
                 <ion-select-option *ngFor="let searchCriterion of searchCriteria"
                                    value="{{searchCriterion.value}}">{{searchCriterion.text}}</ion-select-option>
             </ion-select>

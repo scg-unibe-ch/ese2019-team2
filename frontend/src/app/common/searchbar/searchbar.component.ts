@@ -51,6 +51,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
 
    onDropdownChange(val: any) {
       this.dropdownVal = val;
+      console.log(this.dropdownVal);
       if (this.searchString !== null) {
          this.onSubmit(this.searchString);
       }
