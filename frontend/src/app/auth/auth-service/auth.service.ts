@@ -63,6 +63,17 @@ export class AuthService {
          }));
    }
 
+   updateUser(id: string, lastName: string, firstName: string, email: string, username: string, role: string) {
+      return this.http.post<any>('http://localhost:3000/users/edit', {
+         id,
+         lastName,
+         firstName,
+         email,
+         username,
+         role
+      }, {observe: 'response'});
+   }
+
    generateUserFromJSON(data, token): UserModel {
       return new UserModel(data._id, token, data.username, data.lastName, data.firstName, data.email, data.role);
    }

@@ -84,6 +84,16 @@ router.post('/register', async (req: Request, res: Response) => {
    });
 });
 
+router.post('/edit', async (req: Request, res: Response) => {
+   User.findOneAndUpdate({_id: req.body.id}, {
+      $set: {
+         lastName: req.body.lastName,
+         firstName: req.body.firstName,
+         email: req.body.email
+      }
+   });
+});
+
 router.post('/profileInformation', async (req: Request, res: Response) => {
    const token = req.body.token;
    jwt.verify(token, PRIVATE_KEY, (err: any, decoded: any) => {

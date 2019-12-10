@@ -58,6 +58,8 @@ export class ProfilePage implements OnInit {
       this.changedUser.role = this.currentUser.role;
       console.log(this.changedUser.role, this.currentUser.role);
       this.allowEdit = false;
+      // tslint:disable-next-line:max-line-length
+      const update = this.auth.updateUser(this.changedUser.id, this.changedUser.lastName, this.changedUser.firstName, this.changedUser.email, this.changedUser.username, this.changedUser.role);
    }
 
    getUserInformation() {
