@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../auth/auth-service/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import {AuthService} from '../../auth/auth-service/auth.service';
 })
 export class FooterComponent implements OnInit {
 
-   constructor(private auth: AuthService) {
+   constructor(private auth: AuthService, private http: HttpClient) {
    }
 
    ngOnInit() {
