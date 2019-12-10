@@ -132,4 +132,28 @@ router.get('/all', async (req: Request, res: Response) => {
    });
 });
 
+// update click
+router.get('/edit/:_id', async (req: Request, res: Response) => {
+   Service.findById(req.params._id, (err: any, service: any) => {
+      if (!service) {
+         return res.status(400).send('Could not load document');
+      } else {
+          if (service.clicks === null) {
+              service.clicks = 1;
+          } else {
+              service.clicks = service.clicks + 1;
+          }
+
+         // tslint:disable-next-line:no-shadowed-variable
+         service.save().then((service: any) => {
+            res.json('Update done');
+            // tslint:disable-next-line:no-shadowed-variable
+         }).catch((err: any) => {
+            res.status(400).send('Update failed');
+         });
+      }
+   });
+});
+
+
 export const ServicesController: Router = router;

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SearchService} from '../../services/search/search.service';
 import {CreateService} from '../../services/create/create.service';
+import {ClickUpdaterService} from "../../services/clickUpdater/click-updater.service";
 
 @Component({
    selector: 'app-category',
@@ -14,7 +15,10 @@ export class CategoryPage implements OnInit {
    services = null;
    currentCategory = null;
 
-   constructor(private route: ActivatedRoute, private search: SearchService, private create: CreateService) {
+   constructor(
+       private route: ActivatedRoute,
+       private search: SearchService
+   ) {
    }
 
    ngOnInit() {

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ClickUpdaterService} from "../../services/clickUpdater/click-updater.service";
 
 @Component({
    selector: 'app-preview-card',
@@ -9,8 +10,9 @@ export class PreviewCardComponent implements OnInit {
    private showSkeleton = true;
    @Input() imgSrc: string;
    @Input() title: string;
+   @Input() id: string;
 
-   constructor() {
+   constructor(private clickUpdater: ClickUpdaterService) {
    }
 
    ngOnInit() {
@@ -28,5 +30,12 @@ export class PreviewCardComponent implements OnInit {
 
    hideSkeleton() {
       this.showSkeleton = false;
+   }
+
+   increaseClicks(id: string) {
+      this.clickUpdater.increaseClicks(id)
+          .subscribe(data => {
+             console.log(data);
+          });
    }
 }
