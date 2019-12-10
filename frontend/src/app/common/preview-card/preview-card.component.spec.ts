@@ -2,6 +2,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PreviewCardComponent} from './preview-card.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('PreviewCardComponent', () => {
    let component: PreviewCardComponent;
@@ -10,6 +11,7 @@ describe('PreviewCardComponent', () => {
    beforeEach(async(() => {
       TestBed.configureTestingModule({
          declarations: [PreviewCardComponent],
+         imports: [RouterTestingModule],
          schemas: [CUSTOM_ELEMENTS_SCHEMA],
       })
          .compileComponents();

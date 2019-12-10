@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {CategoryPage} from './category.page';
 import {HeaderModule} from '../../common/header/header.module';
 import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
+import {AuthModule} from '../../auth/auth.module';
 
 const routes: Routes = [
    {
@@ -23,7 +24,8 @@ const routes: Routes = [
       IonicModule,
       RouterModule.forChild(routes),
       HeaderModule,
-      PreviewCardModule
+      PreviewCardModule,
+      AuthModule
    ],
    declarations: [CategoryPage]
 })

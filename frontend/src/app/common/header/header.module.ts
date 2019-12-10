@@ -1,18 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HeaderComponent} from './header.component';
-import {AuthModule} from '../../auth/auth.module';
 import {IonicModule} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
+import {HeaderComponent} from './header.component';
+import {AuthModule} from '../../auth/auth.module';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
    declarations: [HeaderComponent],
    imports: [
+      RouterModule,
       CommonModule,
+      HttpClientModule,
       AuthModule,
       IonicModule,
-      RouterModule
    ],
    exports: [HeaderComponent]
 })

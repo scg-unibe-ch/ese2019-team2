@@ -13,6 +13,7 @@ import {ImageSliderModule} from '../../common/image-slider/image-slider.module';
 import {EssentialModule} from '../../common/essential/essential.module';
 import {DescriptionModule} from '../../common/description/description.module';
 import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
+import {AuthModule} from '../../auth/auth.module';
 
 const routes: Routes = [
    {
@@ -28,11 +29,12 @@ const routes: Routes = [
       IonicModule,
       RouterModule.forChild(routes),
       HeaderModule,
+      AuthModule,
       ContactInformationModule,
       ImageSliderModule,
       EssentialModule,
       DescriptionModule,
-      SeparatingHeadlineModule
+      SeparatingHeadlineModule,
    ],
    declarations: [DetailPage]
 })

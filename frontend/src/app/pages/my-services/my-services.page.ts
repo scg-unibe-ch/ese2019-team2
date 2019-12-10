@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {CreateService} from '../../services/create/create.service';
 import {SearchService} from '../../services/search/search.service';
 import {AuthService} from '../../auth/auth-service/auth.service';
@@ -8,6 +8,8 @@ import {AuthService} from '../../auth/auth-service/auth.service';
    templateUrl: './my-services.page.html',
    styleUrls: ['./my-services.page.scss'],
 })
+
+@Injectable()
 export class MyServicesPage implements OnInit, OnDestroy {
 
    services = null;

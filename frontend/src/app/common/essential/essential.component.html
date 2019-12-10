@@ -1,13 +1,22 @@
-<ion-card class="essential-info" disabled="true">
+<ion-card class="essential-info">
     <ion-card-header>
-        Information
+        <ion-card-title>
+            Essential Information
+        </ion-card-title>
     </ion-card-header>
-    <ion-list>
-        <ion-item><h2>Location</h2></ion-item>
+    <ion-card-content>
+        <ion-item>
+            <h2>Location</h2>
+        </ion-item>
         <p>{{service.location}}</p>
-        <ion-item><h2>Price</h2></ion-item>
-        <p>{{service.price}}</p>
-        <ion-item><h2>Max people</h2></ion-item>
+        <ion-item>
+            <h2>Price</h2>
+        </ion-item>
+        <p>{{service.price}}.- CHF</p>
+        <ion-item>
+            <h2>Max people</h2>
+        </ion-item>
         <p>{{service.maxPeople}}</p>
-    </ion-list>
+
+    </ion-card-content>
 </ion-card>

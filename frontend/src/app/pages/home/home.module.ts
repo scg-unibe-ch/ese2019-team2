@@ -12,6 +12,7 @@ import {PreviewCardModule} from '../../common/preview-card/preview-card.module';
 import {FooterModule} from '../../common/footer/footer.module';
 import {SearchbarModule} from '../../common/searchbar/searchbar.module';
 import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
+import {OverlayContentComponent} from '../../auth/overlay-content/overlay-content.component';
 
 @NgModule({
    imports: [
@@ -29,9 +30,11 @@ import {SeparatingHeadlineModule} from '../../common/separating-headline/separat
       PreviewCardModule,
       FooterModule,
       SearchbarModule,
-      SeparatingHeadlineModule
+      SeparatingHeadlineModule,
+      FormsModule
    ],
-   declarations: [HomePage]
+   declarations: [HomePage],
+   entryComponents: [OverlayContentComponent],
 })
 export class HomePageModule {
 }
