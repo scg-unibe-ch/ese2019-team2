@@ -81,12 +81,8 @@ router.post('/register', async (req: Request, res: Response) => {
             });
          });
       }
-   );
-}
-})
-;
-})
-;
+   });
+});
 
 router.post('/edit', async (req: Request, res: Response) => {
    User.findOneAndUpdate({_id: req.body.id}, {
