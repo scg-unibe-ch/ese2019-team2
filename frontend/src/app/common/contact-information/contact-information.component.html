@@ -1,16 +1,25 @@
-<ion-card class="contact-information" disabled="true">
+<ion-card class="contact-information">
     <ion-card-header>
-        Contact information
+        <ion-card-title>
+            Contact information
+        </ion-card-title>
     </ion-card-header>
-    <ion-list>
-        <ion-item><h2>Address</h2></ion-item>
+    <ion-card-content>
+        <ion-item>
+            <h2>Address</h2>
+        </ion-item>
         <p>{{service.street}}</p>
         <p>{{service.zip}} {{service.city}}</p>
-        <ion-item><h2>E-Mail</h2></ion-item>
+        <ion-item>
+            <h2>E-Mail</h2>
+        </ion-item>
         <p>{{creatorOfService.email}}</p>
         <div *ngIf="service.phone !== '' && service.phone !== null && service.phone">
-            <ion-item><h2>Phone</h2></ion-item>
+            <ion-item>
+                <h2>Phone</h2>
+            </ion-item>
             <p>{{service.phone}}</p>
         </div>
-    </ion-list>
+        <br style="margin-bottom: 10px;"/>
+    </ion-card-content>
 </ion-card>
