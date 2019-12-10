@@ -1,6 +1,7 @@
 .clicks {
   align-self: center;
   alignment: center;
+  padding-right: 10%;
 }
 
 @media (min-width: 500px) {
@@ -10,7 +11,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .clicks{
     display: none;
   }

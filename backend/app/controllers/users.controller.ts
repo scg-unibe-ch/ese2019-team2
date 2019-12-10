@@ -7,7 +7,7 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const PRIVATE_KEY = 'ArmadilloHumourTimingAccusationBeliefGirlfriendGuyPhotoTenantWinery';
 const EXPIRATION_TIME = () => {
-   return Math.floor(Date.now() / 1000) + (60 * 60)
+   return Math.floor(Date.now() / 1000) + (60 * 60);
 };
 
 router.get('/', async (req: Request, res: Response) => {
@@ -84,12 +84,25 @@ router.post('/register', async (req: Request, res: Response) => {
    });
 });
 
-router.post('/edit', async (req: Request, res: Response) => {
-   User.findOneAndUpdate({_id: req.body._id}, {
-      $set: {
-         lastName: req.body.lastName,
-         firstName: req.body.firstName,
-         email: req.body.email
+router.post('/edit/:_id', async (req: Request, res: Response) => {
+   User.findById(req.params._id, (err: any, user: any) => {
+      if (!user) {
+         return res.status(400).send('Could not load document');
+      } else {
+         user._id = req.body.id;
+         user.lastName = req.body.lastName;
+         user.firstName = req.body.firstName;
+         user.email = req.body.email;
+         user.username = req.body.username;
+         user.role = req.body.role;
+
+         // tslint:disable-next-line:no-shadowed-variable
+         user.save().then((user: any) => {
+            res.json('Update done');
+            // tslint:disable-next-line:no-shadowed-variable
+         }).catch((err: any) => {
+            res.status(400).send('Update failed');
+         });
       }
    });
 });

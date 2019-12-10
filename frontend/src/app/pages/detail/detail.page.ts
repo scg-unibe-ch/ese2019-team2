@@ -23,7 +23,6 @@ export class DetailPage implements OnInit, OnDestroy {
             console.log(data);
             this.service = data;
          });
-
    }
 
    ngOnDestroy(): void {

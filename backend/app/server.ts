@@ -4,6 +4,7 @@ import express from 'express';
 // import all the controllers. If you add a new controller, make sure to import it here as well.
 import {UsersController} from './controllers';
 import {ServicesController} from './controllers';
+import {CategoriesController} from './controllers';
 
 const mongoose = require('mongoose');
 
@@ -28,8 +29,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/users', UsersController);
-// !!! does not work like that... always using services db
 app.use('/services', ServicesController);
+app.use('/categories', CategoriesController);
 
 // start serving the application on the given port
 connection.once('open', () => {
