@@ -1,8 +1,8 @@
 <div *ngIf="service!==null">
     <div *ngFor="let s of service">
-        <app-header></app-header>
+        <app-header title="Service"></app-header>
 
-        <ion-item>{{s.serviceName}}</ion-item>
+        <app-separating-headline [title]="s.serviceName">{{s.serviceName}}</app-separating-headline>
         <ion-content>
             <ion-grid>
                 <ion-row>
