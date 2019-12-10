@@ -1,16 +1,25 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CATEGORIES} from '../../categories';
+import {SearchService} from '../../services/search/search.service';
 
 @Component({
    selector: 'app-home',
    templateUrl: 'home.page.html',
    styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-   categories = CATEGORIES;
+   categories = null;
 
-   constructor() {
+   constructor(private search: SearchService) {
+   }
+
+   ngOnInit(): void {
+      this.search.getAllCategories()
+          .subscribe(data => {
+             console.log(data);
+             this.categories = data;
+          });
    }
 
 }

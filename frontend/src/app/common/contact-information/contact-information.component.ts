@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from "../../auth/auth-service/auth.service";
-import {SearchService} from "../../services/search/search.service";
+import {AuthService} from '../../auth/auth-service/auth.service';
+import {SearchService} from '../../services/search/search.service';
 
 @Component({
    selector: 'app-contact-information',
