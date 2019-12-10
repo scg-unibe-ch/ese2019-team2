@@ -1,12 +1,26 @@
-.icons {
-  cursor: pointer;
+@media (max-width: 500px) {
+  .ion-text-capitalize {
+    alignment: right;
+    justify-content: flex-end;
+    //margin-left: 15px;
+    display: none;
+  }
+  .buttonDesktop {
+    display: none;
+  }
 }
 
-.profileIcon {
-  alignment: right;
-  justify-content: flex-end;
+@media (min-width: 500px) {
+  .buttonMobile {
+    display: none;
+  }
+}
+
+.icons {
+  cursor: pointer;
 }
 
 .ion-text-right {
   align-content: end;
 }
+
