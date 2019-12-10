@@ -15,26 +15,26 @@ import {DescriptionModule} from '../../common/description/description.module';
 import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: DetailPage
-    }
+   {
+      path: '',
+      component: DetailPage
+   }
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-        HeaderModule,
-        ContactInformationModule,
-        ImageSliderModule,
-        EssentialModule,
-        DescriptionModule,
-        SeparatingHeadlineModule
-    ],
-    declarations: [DetailPage]
+   imports: [
+      CommonModule,
+      FormsModule,
+      IonicModule,
+      RouterModule.forChild(routes),
+      HeaderModule,
+      ContactInformationModule,
+      ImageSliderModule,
+      EssentialModule,
+      DescriptionModule,
+      SeparatingHeadlineModule
+   ],
+   declarations: [DetailPage]
 })
 export class DetailPageModule {
 }

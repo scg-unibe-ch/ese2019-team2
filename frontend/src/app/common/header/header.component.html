@@ -16,16 +16,19 @@
                 </ion-col>
                 <ion-col class="ion-text-right">
                     <app-overlay-controller
-                        *ngIf="!isThisLoginOrRegisterPage() && !auth.isLoggedIn() && auth.displayPopover()">
+                            *ngIf="!isThisLoginOrRegisterPage() && !auth.isLoggedIn() && auth.displayPopover()">
                     </app-overlay-controller>
                     <ng-container *ngIf="!auth.isLoggedIn()">
                         <ion-button class="buttonDesktop" [routerLink]="['/login']">Log in!</ion-button>
-                        <ion-button class="buttonMobile" [routerLink]="['/login']"><ion-icon name="log-in"></ion-icon></ion-button>
+                        <ion-button class="buttonMobile" [routerLink]="['/login']">
+                            <ion-icon name="log-in"></ion-icon>
+                        </ion-button>
                         <ion-button class="buttonDesktop" [routerLink]="['/register']">Register!</ion-button>
-                        <ion-button class="buttonMobile" [routerLink]="['/register']"><ion-icon name="key"></ion-icon></ion-button>
+                        <ion-button class="buttonMobile" [routerLink]="['/register']">
+                            <ion-icon name="key"></ion-icon>
+                        </ion-button>
                     </ng-container>
                 </ion-col>
-
                 <ion-col *ngIf="auth.isLoggedIn()">
                     <ion-item lines="none">
                         <ion-icon [routerLink]="['/profile']" class="icons" name="person" slot="end"></ion-icon>

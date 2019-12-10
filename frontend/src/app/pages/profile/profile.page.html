@@ -1,38 +1,34 @@
 <app-header title="Profile"></app-header>
 <ion-content>
-    <div *ngIf="!data.length">
+    <div>
         <div class="ion-padding">
             <ion-list>
-                <ion-list-header>
-                    <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
-                </ion-list-header>
                 <ion-item>
-                    <ion-avatar slot="start">
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                    </ion-avatar>
-                    <ion-label>
-                        <h3>
-                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                        </h3>
-                        <p>
-                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                        </p>
-                        <p>
-                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                        </p>
-                    </ion-label>
+                    <ion-title>Last Name
+                    </ion-title>
+                    <ion-input *ngIf="allowEdit" type="text" placeholder="{{currentUser.lastName}}" name="lastName"
+                               [(ngModel)]="currentUser.lastName"></ion-input>
+                    <ion-text *ngIf="!allowEdit">{{currentUser.lastName}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>First Name</ion-title>
+                    <ion-input *ngIf="allowEdit" type="text" placeholder="{{currentUser.firstName}}" name="firstName"
+                               [(ngModel)]="currentUser.firstName"></ion-input>
+                    <ion-text *ngIf="!allowEdit">{{currentUser.firstName}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>Email</ion-title>
+                    <ion-input *ngIf="allowEdit" type="text" placeholder="{{currentUser.email}}" name="email"
+                               [(ngModel)]="currentUser.email"></ion-input>
+                    <ion-text *ngIf="!allowEdit">{{currentUser.email}}</ion-text>
+                </ion-item>
+                <ion-item>
+                    <ion-title>User Name</ion-title>
+                    <ion-text>{{currentUser.username}}</ion-text>
                 </ion-item>
             </ion-list>
         </div>
-    </div>
-    <div *ngIf="data.length">
-        <div class="ion-padding">
-            <ion-list>
-                <ion-item *ngFor="let dataEntry of data">
-                    <ion-title> {{ dataEntry.title }} </ion-title>
-                    <ion-text> {{ dataEntry.content }} </ion-text>
-                </ion-item>
-            </ion-list>
-        </div>
+        <ion-button *ngIf="!allowEdit" size="default" type="click" (click)="onClick()">Edit</ion-button>
+        <ion-button *ngIf="allowEdit" size="default" type="submit" (click)="onSubmit()">Save</ion-button>
     </div>
 </ion-content>
