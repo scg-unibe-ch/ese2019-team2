@@ -1,11 +1,14 @@
 import {Router, Request, Response} from 'express';
+
 const User = require('../models/user.model');
 const router: Router = Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const PRIVATE_KEY = 'ArmadilloHumourTimingAccusationBeliefGirlfriendGuyPhotoTenantWinery';
-const EXPIRATION_TIME = () => {return Math.floor(Date.now() / 1000) + (60 * 60)};
+const EXPIRATION_TIME = () => {
+    return Math.floor(Date.now() / 1000) + (60 * 60)
+};
 
 router.get('/', async (req: Request, res: Response) => {
     res.statusCode = 200;
@@ -48,13 +51,15 @@ router.get('/:name', async (req: Request, res: Response) => {
 });
 
 router.post('/register', async (req: Request, res: Response) => {
-    User.find({$or: [
-        {username: req.body.username},
-        {email: req.body.email}
-    ]}, async (err: any, user: any) => {
+    User.find({
+        $or: [
+            {username: req.body.username},
+            {email: req.body.email}
+        ]
+    }, async (err: any, user: any) => {
         if (user.length !== 0) {
             res.status(418).json({error: 'user already exists'});
-        return;
+            return;
         } else {
             // tslint:disable-next-line:no-shadowed-variable
             const user = new User({
