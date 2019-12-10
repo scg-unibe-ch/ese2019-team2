@@ -14,6 +14,7 @@ import {EssentialModule} from '../../common/essential/essential.module';
 import {DescriptionModule} from '../../common/description/description.module';
 import {SeparatingHeadlineModule} from '../../common/separating-headline/separating-headline.module';
 import {AuthModule} from '../../auth/auth.module';
+import {FooterModule} from '../../common/footer/footer.module';
 
 const routes: Routes = [
    {
@@ -35,6 +36,7 @@ const routes: Routes = [
       EssentialModule,
       DescriptionModule,
       SeparatingHeadlineModule,
+      FooterModule,
    ],
    declarations: [DetailPage]
 })

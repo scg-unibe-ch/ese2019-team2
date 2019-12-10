@@ -1,11 +1,7 @@
 <ion-slides #ionSlides>
     <ion-slide *ngFor="let detailImg of detailImgs">
-        <button type="submit" float-right class="btnNext" (click)="slidePrev()">
-            <ion-icon name="ion-chevron-left" class="arrow-backward"></ion-icon>
-        </button>
+        <ion-icon name="arrow-back" class="arrowPrev" (click)="slidePrev()"></ion-icon>
         <ion-img [src]="detailImg"></ion-img>
-        <button type="submit" float-left class="btnPrev" (click)="slideNext()">
-            <ion-icon name="ion-chevron-right" class="arrow-forward"></ion-icon>
-        </button>
+        <ion-icon name="arrow-forward" class="arrowNext" (click)="slideNext()"></ion-icon>
     </ion-slide>
 </ion-slides>
