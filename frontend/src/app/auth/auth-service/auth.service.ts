@@ -64,7 +64,7 @@ export class AuthService {
    }
 
    updateUser(id: string, lastName: string, firstName: string, email: string, username: string, role: string) {
-      return this.http.post<any>('http://localhost:3000/users/edit', {
+      return this.http.post<any>(`http://localhost:3000/users/edit/${id}`, {
          id,
          lastName,
          firstName,

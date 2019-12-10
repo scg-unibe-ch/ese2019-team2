@@ -1,16 +1,9 @@
 .contact-information {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 10px;
+  left: 20px;
 
-  width: 450px !important;
-
-  ion-card {
-    height: 300px !important;
-    width: 400px !important;
-    opacity: 0 !important;
-    background: rgba(255, 255, 255, 0.5);
-  }
+  width: 425px !important;
 
   p {
     margin-left: 20px;
