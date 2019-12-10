@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SearchService} from '../../services/search/search.service';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {SearchService} from '../../services/search/search.service';
 
 @Component({
    selector: 'app-searchbar',
@@ -25,7 +26,8 @@ export class SearchbarComponent implements OnInit, OnDestroy {
 
    constructor(
       private search: SearchService,
-      private router: Router
+      private router: Router,
+      private http: HttpClient,
    ) {
    }
 
